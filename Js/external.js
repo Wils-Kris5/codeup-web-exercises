@@ -82,9 +82,16 @@ in designing or assigning a function it can use and be used of all elements and 
 
 defining = parameters is the variable listed inside the parentheses in the function definition
 calling = arguments - is the value that is sent to the function when it is called
+
+
 //   - What is the difference between a function expression and function declaration?
+
+
 //   - What is the difference between the values stored in the variables in the following statements:
+
+
 //     var x = someFunction();
+
 //     var y = someFunction;
 
 
