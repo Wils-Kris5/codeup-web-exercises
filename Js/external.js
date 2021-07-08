@@ -85,10 +85,11 @@ calling = arguments - is the value that is sent to the function when it is calle
 
 
 //   - What is the difference between a function expression and function declaration?
-//The main difference between a function expression and a function declaration is the function name, which can be omitted in function expressions to create anonymous functions.
+The main difference between a function expression and a function declaration is the function name,
+which can be omitted in function expressions to create anonymous functions.
 
 //   - What is the difference between the values stored in the variables in the following statements:
-
+values stored in functions are called "local variables" var x is INVOKING OR CALLING THE FUNCTION
 
 //     var x = someFunction();
 
