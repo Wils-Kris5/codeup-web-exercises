@@ -168,55 +168,86 @@
   // ****================ !! Mini-exercises !! ****
 
   // Write a function, returnFive, that returns the number five. No inputs should be defined.
-       function returnFive(){
-           return five;
-       }
-      console.log(returnFive)
+  //      function returnFive(){
+  //          return 5;
+  //      }
+  //      var output = returnFive();
+  //
+  //     console.log(returnFive());
   // Write a function, isFive, that takes in an input
        // and returns the boolean value true
        // if the passed argument is the number 5 or the string "5".
        // Return false otherwise.
-       function isFive (input) {
-         if (5 === input || "5" === input) {
-               return true;
-         }
-             else {
-           return false;
-         }
-       }
+       // returns a boolean value
+       // function isFive (input) {
+       //   var output = false;
+       //   // if the inputis 5 or "5" change the output to true
+       //
+       //   if (input === 5 || input === "5") {
+       //     output = true;
+       //   }
+       //   return output;
+       // }
 
 
-  // Write a function, isShortWord, that takes in a string and returns the boolean value true if the passed argument is shorter than 5 characters. Return false otherwise.
-           function isShortWord (str) {
-               if(str <= 5){
-                 return true;
-  }
-                 else {
-                   return false;
-       }
-     }
+  // Write a function, isShortWord,
+  // that takes in a string and returns the boolean value true
+  // if the passed argument is shorter than 5 characters.
+  // Return false otherwise.
+  //1. WHAT INPUT DOES THE FUNCTION TAKE IN? (HOW MANY INPUTS / WHAT TYPE?)
+  // string, so 1input that is a string
+  // 2 what does the function return? (what is the data type)
+  // boolean value(true or false)
+  //
+  //  function isShortWord(str) {
+  // //   if the input is less than five characters return true otherwise
+  //
+  //   return string.length < 5;
+  //  }
+  //
+
+  // Write a function, isSameLength,
+  // that takes in two string inputs
+  // and returns the boolean value true if the passed arguments are the same length.
+  // Return false otherwise.
+  // what is the function taking in ? two string string inputs
+  // what is the function outputting? boolean
+   function isSameLength (str1, str2) {
+
+     return str1.length === str2.length;
+
+   }
 
 
-  // Write a function, isSameLength, that takes in two string inputs and returns the boolean value true if the passed arguments are the same length. Return false otherwise.
-          function isSameLength (a, b) {
-           if(b == a)
-             return true;
-  }
-               else { return false; }
-  }
+
 
   // Write a function, getSmallerSegment, that takes in a string and a number input. The function should
   // return a substring of the first argument that is as many characters long as the second argument in lowercase.
-         function getSmallerSegemnt(str, num) {
+        // what is the input? a string & a number
+       // what is the return value? a string
 
-         }
-
-
+  // example input ("Codeup", 3)
+  //example output "cod"
+  //        function getSmallerSegemnt(str, num) {
+  //          var output = '';
+  //          output = str.substring(0, num).toLowerCase();
+  //          return output;
+  //
+  //        }
 
   // example input: getSmallerSegment("Codeup", 3)
   // example output: "cod"
 
-  // Refactor the following code to use functions...
+  // Refactor the following code to use functions...*********
+
+
+
+  // function addNums(num1, num2) {
+  //    return num1 + num2;
+  // }
+  // console.log('The result of num1 + num2 is: ' + addNums (2,4));
+  // console.log('The result of num1 + num2 is: ' + addNums (5,1));
+  // console.log('The result of num1 + num2 is: ' + addNums (10,5));
 
   // var x = 2;
   // var y = 4;
@@ -234,9 +265,9 @@
   // console.log('The result of num1 + num2 is: ' + totalCD);
 
 
-  // ================ Function Scope
+  // ================ Function Scope********
 
-  // SCOPE EXAMPLE
+  // SCOPE EXAMPLE*****
 
   // var keyword creates "Function Scope" variables
 
