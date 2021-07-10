@@ -268,7 +268,7 @@
   // ================ Function Scope********
 
   // SCOPE EXAMPLE*****
-
+  // [
   // var keyword creates "Function Scope" variables
 
   // var globalVar = "Look, I'm Global!"; // declare a global variable
@@ -283,6 +283,9 @@
   // scopeExample();
   // alert(globalVar);
   // alert(localVar);
+  // ] any variables declared inside a function cannot get them outside of that function
+  // ] pure functions, if youre testing it,
+  // it will always have the same output no matter the given input.
 
 
   // EXTRA SCOPE EXAMPLE
@@ -316,11 +319,11 @@
   // }
   //
   //
-  // // function with side effects
+  // // function with side effects*****
   // var startCount = 1;
   //
-  // function count() {
-  //     return ++count;
+  // function count(startcount) {
+  //     return ++startcount;
   // }
   //
   // // pure function
@@ -329,6 +332,11 @@
   // }
 
   // ================ Higher Order Functions
+  /* function can be assigned to a variable
+
+
+  */
+
 
   // function returnFive() {
   //     return 5;
@@ -338,7 +346,12 @@
   // function addTwo(number) {
   //     return number() + 2;
   // }
-  //
+  /*
+  a callback function are a scenerio where we have a function being passed into another function
+
+
+
+   */
   // console.log(addTwo(returnFive)); // Callback function "returnFive" is passed to addTwo
 
   // console.log(addTwo(function() { // Anon function passed to addTwo()
@@ -348,8 +361,31 @@
   // other common higher order functions built in to JS: setInterval, setTimeout, map, filter, reduce, fetch
 
   // ================ IIFE
+  /*
+  Immediatley-invoked Function Expression - An Immediately-Invoked Function Expression (IIFE) is a tool that allows us to keep our variables isolated.
+// define a function and immediately invoke (i.e. call) it
+(function () {
+    var iffeVar = "I'm local to the IIFE.";
+})(); << this will immediatly invoked
+you should wrap it up in an iffe unless you want to run it in other code, this wraps around your code
+benifits - you dont have a naming conflinct, everything is self contained
+
+
+alert(iffeVar); // undefined
+
+})() inclue this into your javscript except on your assements
+
+
+   */
 
   // See additional example
+ // var email;
+  if (typeof email === "undefined") {
+    alert("That's undefined!");
+  } else {
+    alert("thats not undefined.");
+  }
+  // uncaught refrence error
 
 </script>
 </body>
