@@ -20,6 +20,9 @@
  * console.logging the function's return value
  */
   function analyzeColor(color) {
+    // var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    // var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
       if (color === 'blue') {
           return 'blue is the color of the sky';
       } else if (color === 'red') {
@@ -39,8 +42,8 @@ console.log(analyzeColor('purple'), 'I don\'t know anything about purple');
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
 //  * TODO:
 //  * Pass the `randomColor` variable to your function and console.log the results.
@@ -53,25 +56,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-function analyzeColorSwitch(color) {
- var colorSwch;
- switch (color) {
-    case 'blue':
-        colorSwch =  'blue is the color of the sky';
-        break;
-     case 'red':
-         colorSwch = 'Strawberries are red';
-           break;
-    default:
-    colorSwch = 'I don\'t know anything about' + color;
- }
-  return colorSwch;
-}
+// function analyzeColorSwitch(color) {
+//  var colorSwch;
+//  switch (color) {
+//     case 'blue':
+//         colorSwch =  'blue is the color of the sky';
+//         break;
+//      case 'red':
+//          colorSwch = 'Strawberries are red';
+//            break;
+//     default:
+//     colorSwch = 'I don\'t know anything about' + color;
+//  }
+//   return colorSwch;
+// }
 
-console.log(analyzeColor('blue'), 'blue is the color of the sky');
-console.log(analyzeColor('red'), 'Strawberries are red');
-console.log(analyzeColor('cyan'), 'I don\'t know anything about cyan');
-console.log(analyzeColor('purple'), 'I don\'t know anything about purple');
+// console.log(analyzeColor('blue'), 'blue is the color of the sky');
+// console.log(analyzeColor('red'), 'Strawberries are red');
+// console.log(analyzeColor('cyan'), 'I don\'t know anything about cyan');
+// console.log(analyzeColor('purple'), 'I don\'t know anything about purple');
 
    /**
     * TODO:
@@ -132,9 +135,9 @@ console.log(analyzeColor('purple'), 'I don\'t know anything about purple');
    return totalAmount - (discountNumber * totalAmount);
   }
 
-   console.log (calculateTotal(0, 100), 100);
-   console.log (calculateTotal(4, 100), 50;
-   console.log (calculateTotal(5, 100), 0);
+   // console.log (calculateTotal(0, 100), 100);
+   // console.log (calculateTotal(4, 100), 50;
+   // console.log (calculateTotal(5, 100), 0);
 //
 //
 //    /**
@@ -196,11 +199,11 @@ function plusHundred(num) {
 }
 
 function isPosNeg(num) {
-    return (number < 0) ? 'Number is negative' : 'Number is Positive';
+    return (num < 0) ? 'Number is negative' : 'Number is Positive';
 
 }
 
-function userNumInfo() {
+function numberInfo() {
     var confirmNumber = confirm("Click 'Ok', to enter a number");
     var userNumber;
     if (confirmNumber) {
@@ -208,14 +211,14 @@ function userNumInfo() {
 
          // input is a num
         if (isNumeric(userNumber)) {
-            alert(evenOddMessage(userNumber));
+           return alert(evenOddMessage(userNumber));
             // +100
             alert(plusHundred(userNumber));
             // neg/pos
             alert(isPosNeg(userNumber));
         } else {
             //NaN
-            alert('Input not a number!');
+            return alert('Input not a number!');
         }
     }
 }
