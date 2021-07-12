@@ -71,29 +71,29 @@ var passIsValid = passIsCorrectLength && noUsernamePass && passIsTrim;
 var usernameIsValid = usernameIsCorrectLength && usernameIsTrim;
 var isValidRegistration = passIsValid && usernameIsValid;
 
-// Pre-lecture questions:
-//   - What is a function?
-A function is a reusable block of code that performs a specified task, usually taking an input and producing an output.
+// // Pre-lecture questions:
+// //   - What is a function?
+// A function is a reusable block of code that performs a specified task, usually taking an input and producing an output.
+//
+// //   - How are functions first-class citizens in JS?
+// in designing or assigning a function it can use and be used of all elements and make ups in javascript
+//
+// //   - What is the difference between an argument and a parameter?
+//
+// defining = parameters is the variable listed inside the parentheses in the function definition
+// calling = arguments - is the value that is sent to the function when it is called
+//
+//
+// //   - What is the difference between a function expression and function declaration?
+// The main difference between a function expression and a function declaration is the function name,
+// which can be omitted in function expressions to create anonymous functions.
+//
+// //   - What is the difference between the values stored in the variables in the following statements:
+// values stored in functions are called "local variables" var x is INVOKING OR CALLING THE FUNCTION
 
-//   - How are functions first-class citizens in JS?
-in designing or assigning a function it can use and be used of all elements and make ups in javascript
+//     var x = someFunction(); is the returned value of the function
 
-//   - What is the difference between an argument and a parameter?
-
-defining = parameters is the variable listed inside the parentheses in the function definition
-calling = arguments - is the value that is sent to the function when it is called
-
-
-//   - What is the difference between a function expression and function declaration?
-The main difference between a function expression and a function declaration is the function name,
-which can be omitted in function expressions to create anonymous functions.
-
-//   - What is the difference between the values stored in the variables in the following statements:
-values stored in functions are called "local variables" var x is INVOKING OR CALLING THE FUNCTION
-
-//     var x = someFunction();
-
-//     var y = someFunction;
+//     var y = someFunction; parameter- How functions take in input, defining
 
 
 
