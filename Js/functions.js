@@ -103,4 +103,4 @@ function applyDiscount(num1, num2) {
    return disCount.toFixed(4);
 
 }
-// done
+// done yay
