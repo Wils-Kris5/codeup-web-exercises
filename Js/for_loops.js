@@ -1,27 +1,14 @@
-/* Create a function named showMultiplicationTable
-- that accepts a number
-- and console.logs the multiplication table for that number (just multiply by the numbers 1 through  i.e 100)
- */
+/* Create a function named showMultiplicationTable*/
 
 
-
-// for (/*initialization*/; /*condition*/; /*increment*/) {
-//     // body
-// }
-// ** The value of the lcv is checked in the conditional test
-var multiplier = 7;
-for(var i = 1; i <= 10; i++) {
-  var result = multiplier * i;
-  console.log(multiplier + ' * ' + i + ' = ' + result);
+function  showMultiplicationTable(input) {
+  for (var i = 1; i <= 10; i++) {
+    var result = input * i;
+    console.log(input + ' * ' + i + ' = ' + result);
+  }
 }
-// example:https://www.teaching-materials.org/javascript/exercises/forloops
-// for (var multiplier = 0; multipler <= 10; multiplier++) {
-//   for (var i = 0; i <= 10; i++) {
-//     var result multiplier * i; console.log(multiplier + ' * ' + i ' = ' + result);
-//
-//   }
-//
-// }
+console.log(showMultiplicationTable(7));
+
 /* output:
 
 7 x 1 = 7
@@ -33,7 +20,23 @@ for(var i = 1; i <= 10; i++) {
 7 x 7 = 49
 7 x 8 = 56
 7 x 9 = 63
-7 x 10 = 70 */
+7 x 10 = 70
+*/
 
 
-//
+
+/* #2!!!
+1st Use a for loop and the code from the previous lessons to generate 10 random numbers between 20 and 200
+2nd output to the console whether each number is odd or even.
+output to the console whether each number is odd or even.
+ */
+
+var randomNumber = Math.floor((Math.random() * (200 - 20 + 1)) + 20);
+
+if (randomNumber %2===0) {
+  console.log(randomNumber + " is even.");
+
+} else {
+  console.log(randomNumber + " is odd");
+}
+
