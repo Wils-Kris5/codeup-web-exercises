@@ -123,6 +123,72 @@ the value of the lov is modified inside the loop (count = count -1;)
 //      console.log(i);
 //  }
 
+
+
+
+//>>> / for loops
+//
+// // var count = 100;
+// // while (count >=0){
+// //     console.log(count);
+// //     count = count -1;
+// // }
+//
+// // "count" is the loop control variable (lcv)
+// // The lcv gets initialized (var count = 100;)
+// // The value of the lcv is checked in the conditional test
+// // The lcv is output (console.log(count);)
+// // The value of the lcv is modified inside the loop (count = count -1;)
+// -- otherwise it is an infinite loop
+//
+// //(lcv initialized ; conditional tested; lcv modified)
+// // for (count = 100; count >= 0; count = count -1){
+// //     console.log(count);
+// // }
+// // even this is too long for impatient programmers
+// // i is the iterator -- standard name for the loop control variable
+// // for (i = 100; i >=0; i--){
+// //     console.log(i);
+// // }
+//
+// // Here the lcv is incremented after output
+// // I never see 99
+// // var i = 0;
+// // while (i<100){
+// //     console.log(i);
+// //     i = i + 1;
+// // }
+//
+// // Here the lcv is incremented before output
+// // I see 100
+// // var i = 0;
+// // while (i<100){
+// //     i = i + 1;
+// //     console.log(i);
+// // }
+//
+// // In a for loop, the lcv is modified last. Always last.
+// // We see 99, then it's incremented. We never see 100.
+// // for (i=0; i < 100; i++){
+// //     console.log(i);
+// // }
+//
+// // You can change your starting point
+// // You can change your end point
+// // You can change by how much you step up or down
+// // you can have a loop within a loop
+// // you can have a conditional within a loop
+// for (i=512; i >0; i -=24){
+//     console.log(i);
+//     for (inner = 0; inner < 9; inner++){
+//         console.log(i + " plus " + inner + " equals " + (i + inner));
+//     }
+//     if (i < 50){
+//         console.log(i + " is such a cute little number! <3");
+//     }
+//
+// }
+
 /*
 var i = 0;
 while (i<=100){
@@ -134,3 +200,8 @@ i = i + 1
 // for (i=0; i < 100; i++){
 // console.log(i);
 // } the increment happens last
+
+/* we will use for loops when we know ahead of time how many times the loop needs to run,
+
+and while or do-while loops when we cannot know how many times the loop needs to run.
+ */
