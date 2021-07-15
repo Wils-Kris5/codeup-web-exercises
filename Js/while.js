@@ -44,19 +44,28 @@ while (x <= 65536) {
 // a random number between 50 and 100
  var allCones = Math.floor(Math.random() * 50) + 50;
 
-console.log('There are ' + allCones + ' cones in stock.');
-
 do {
-    var conesSold = Math.floor(Math.random() * 5) + 1;
+ var conesBought = Math.floor(Math.random() * 5) + 1;
 
-    if (conesSold <= allCones) {
-        allCones = allCones - conesSold;
-        console.log(conesSold + ' cones purchased');
-    } else {
-        console.log('Sorry! I can\'t sell you ' + conesSold + ' cones.');
-    }
-    console.log('We have ' + allCones + ' cones left.');
-} while (conesSold < allCones);
+ console.log(conesBought + ' cones sold ...');
+ console.log(allCones + ' cones left');
+ allCones = allCones - conesBought;
+} while (allCones >= 0);
+
+//
+// console.log('There are ' + allCones + ' cones in stock.');
+//
+// do {
+//     var beingBought = Math.floor(Math.random() * 5) + 1;
+//
+//     if (conesSold <= allCones) {
+//         allCones = allCones - conesSold;
+//         console.log(conesSold + ' cones purchased');
+//     } else {
+//         console.log('Sorry! I can\'t sell you ' + conesSold + ' cones.');
+//     }
+//     console.log('We have ' + allCones + ' cones left.');
+// } while (conesSold < allCones);
 
 
 //random number between 1 and 5
