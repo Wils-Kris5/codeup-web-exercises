@@ -99,5 +99,27 @@
 // } while (guess !== number);
 // alert("Your guess of " + guess + " matches the number " + number + "!");
 
+var count = 100;
+while (count >= 0) {
+    console.log(count);
+    count = count -1;
+}
 
+// "count is the loop control cariable
+//the lov get initilized (var count = 100;)
+// the value of the lov is checked in the conditional test
+/* the lov is output (console.log(count);)
+the value of the lov is modified inside the loop (count = count -1;)
+-- otherwise it is an infinite loop
+ */
+
+// loop control variable is initilized, conditions
+for (count = 100; count >= 0; count = count -1){
+    console.log(count)
+}
+// even this is too log for impatient programmers
+
+ for (i = 100; i >=0; i-- ){
+     console.log(i);
+ }
 
