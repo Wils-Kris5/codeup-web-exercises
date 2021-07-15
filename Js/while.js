@@ -52,7 +52,7 @@ do {
  allCones = allCones - conesBought;
 } while (allCones >= 0);
 
-//
+
 // console.log('There are ' + allCones + ' cones in stock.');
 //
 // do {
