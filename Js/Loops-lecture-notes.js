@@ -114,12 +114,23 @@ the value of the lov is modified inside the loop (count = count -1;)
  */
 
 // loop control variable is initilized, conditions
-for (count = 100; count >= 0; count = count -1){
-    console.log(count)
-}
-// even this is too log for impatient programmers
+// for (count = 100; count >= 0; count = count -1){
+//     console.log(count)
+// }
+// // even this is too log for impatient programmers
+//
+//  for (i = 100; i >=0; i-- ){
+//      console.log(i);
+//  }
 
- for (i = 100; i >=0; i-- ){
-     console.log(i);
- }
+/*
+var i = 0;
+while (i<=100){
+console.log(i);
+i = i + 1
+ */
 
+//
+// for (i=0; i < 100; i++){
+// console.log(i);
+// } the increment happens last

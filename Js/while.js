@@ -2,11 +2,13 @@
 
 // while Loops : Create a while loop that uses console.log()
 // to create the output shown below.
+/*
 var x = 2;
 while (x <= 65536) {
  console.log(x);
  x *= 2;
 }
+*/
 
 
 
@@ -42,11 +44,11 @@ while (x <= 65536) {
 
 // #2 Do-while:
 // a random number between 50 and 100
- var allCones = Math.floor(Math.random() * 50) + 50;
 
- stasdo {
+
+ /* var allCones = Math.floor(Math.random() * 50) + 50;
   var conesBought = Math.floor(Math.random() * 5) + 1;
-
+do {
   if (conesBought > allCones) {
  console.log('cannot sell you ') + conesBought + ' I only have ' + allCones)
  } else {
@@ -56,22 +58,8 @@ while (x <= 65536) {
 } while (allCones > 0);
 console.log('Yay! I sold them all!');
 }
-
-
-// console.log('There are ' + allCones + ' cones in stock.');
-//
-// do {
-//     var beingBought = Math.floor(Math.random() * 5) + 1;
-//
-//     if (conesSold <= allCones) {
-//         allCones = allCones - conesSold;
-//         console.log(conesSold + ' cones purchased');
-//     } else {
-//         console.log('Sorry! I can\'t sell you ' + conesSold + ' cones.');
-//     }
-//     console.log('We have ' + allCones + ' cones left.');
-// } while (conesSold < allCones);
-
+*/
+// you can change your starting point end point step up or down
 
 //random number between 1 and 5
 // Math.floor(Math.random() * 5) + 1;
