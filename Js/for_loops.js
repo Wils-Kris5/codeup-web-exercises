@@ -30,8 +30,8 @@ console.log(showMultiplicationTable(7));
 2nd output to the console whether each number is odd or even.
 output to the console whether each number is odd or even.
  */
-
-var randomNumber = Math.floor((Math.random() * (200 - 20 + 1)) + 20);
+for (i=20; i<200; i++) {
+var randomNumber = Math.floor(Math.random() * 181) + 20;
 
 if (randomNumber %2===0) {
   console.log(randomNumber + " is even.");
@@ -40,3 +40,6 @@ if (randomNumber %2===0) {
   console.log(randomNumber + " is odd");
 }
 
+
+
+for i =0 i <10 i++

@@ -205,3 +205,7 @@ i = i + 1
 
 and while or do-while loops when we cannot know how many times the loop needs to run.
  */
+
+//// for (/*initialization*/; /*condition*/; /*increment*/) {
+// //     // body
+// // }
