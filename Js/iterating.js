@@ -44,11 +44,8 @@
 	 * TODO:
 	 * Refactor your above code to use a `forEach` loop
 	 */
-	// names.forEach(function(element, index, array){
-	//
-	// 	console.log("Element " + element + " is at the index " + index);
-	// 	console.log(index);
-	// 	console.log(array);
+	// names.forEach(function(name){
+	// 	console.log(name);
 	// });
 
 	// Element Roxanne is at the index 0
@@ -79,30 +76,30 @@
 
 	 * Example:
 	 */
-	//
-	// var theArray = [1, 2, 3, 4, 5];
-    // var index = theArray.indexOf(1);
-    // console.log(index);
-    // var theLength = theArray.length
-	// console.log(theLength); // 5
+
+	var theArray = [1, 2, 3, 4, 5];
+    var index = theArray.indexOf(1);
+    console.log(index);
+    var theLength = theArray.length
+	console.log(theLength); // 5
 
 
 	// second([1, 2, 3, 4, 5]) // returns 2
 	//  last([1, 2, 3, 4, 5]) // return 5
-	//
-// function first(input) {
-//    return theArray[0];
-// }
-//
-// function second(input) {
-// 	return theArray[1];
-// }
-// function last(input) {
-// 	return theArray[4];
-// }
+
+function first(input) {
+   return theArray[0];
+}
+
+function second(input) {
+	return theArray[1];
+}
+function last(input) {
+	return theArray[4];
+ }
 
 
 
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
-})()
+
+})();
