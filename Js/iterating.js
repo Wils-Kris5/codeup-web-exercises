@@ -97,7 +97,9 @@ function second(input) {
 function last(input) {
 	return theArray[4];
  }
-
+console.log(first(input), 1);
+console.log(second(inputs), 2);
+console.log(last(inputs), 5);
 
 
 
