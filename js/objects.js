@@ -1,4 +1,4 @@
-// (function() {
+ (function() {
     "use strict";
 
     /**
@@ -55,6 +55,21 @@
         {name: 'George', amount: 320}
     ];
 
+     shoppers.forEach(function(customer){
+         if( customer > 200 ) {
+             var newTotal = customer.amount - (customer.amount * .12)
+             console.log(customer.name + "you spent: " + customer.amount
+                 + "so heres a discount:"  + newTotal);
+         } else {
+             console.log("sorry " + customer + "you didn\'t spend enough, you only spent " + customer.amount);
+         }
+});
+
+
+
+
+
+
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -104,4 +119,4 @@
      *   `showBookInfo` function.
      */
 
-// })();
+ })();
