@@ -1,4 +1,4 @@
- (function() {
+ // (function() {
     "use strict";
 
     /**
@@ -11,12 +11,12 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-    var me = {
-        firstName: "kristen",
-        lastName: "wilson",
+    var Person = {
+        firstName: "Kristen",
+        lastName: "Wilson",
     }
-    // console.log(me.firstName) // kristen
-    //console.log(me.lastName) // wilson
+    // console.log(person.firstName) // Kristen
+    //console.log(person.lastName) // Wilson
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -26,13 +26,13 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-    var me = {};
-    me.firstName = "kristen";
-    me.lastName = "wilson";
-    me.sayHello = function() {
+    var person = {};
+    person.firstName = "Kristen",
+    person.lastName = "Wilson"
+    person.sayHello = function() {
        console.log("Hey you! it\'s " + this.firstName + " " + this.lastName + "!");
     };
-    me.sayHello();
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -48,27 +48,115 @@
      * and console.log the relevant messages for each person
      */
 
-
+     var discountThreshold = 200
      var shoppers = [
         {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
-    ];
 
-     shoppers.forEach(function(customer){
-         if( customer > 200 ) {
-             var newTotal = customer.amount - (customer.amount * .12)
-             console.log(customer.name + "you spent: " + customer.amount
-                 + "so heres a discount:"  + newTotal);
-         } else {
-             console.log("sorry " + customer + "you didn\'t spend enough, you only spent " + customer.amount);
-         }
+    ];
+  // if purchasing more than 200, will get 12% off
+
+ // Cameron is purchasing $180.00. He will get 0.00 off and now pay 180.00
+// Ryan is buying $250.00 of stuff he will get 30.00 off the purchase & pay 220.00.
+ // .12 * 250 = 30
+ // George is buying 320.00 of stuff. he will get 38.40 off the purchase and pay 281.60
+
+
+                                                                                      // vvv  good place for a function
+     var output1 = "Cameron is buying " + shoppers[0].amount + " of stuff. He will get " +
+ console.log(output1);
+
+function calculateDiscount(amount, threshold, discountPercentage) {
+    // if the amount is greater than the threshold apple the discount
+    if (amount <= threshold) {
+        return 0
+    } else {
+        return (amount * discountPercentage);
+    }
+}
+
+ for (var i = 0; i < shoppers.length; i += 1) {
+     var discountedAmount = calculateDiscount(shoppers[i].amount, discountThreshold, discountPercentage);
+     var output = shoppers[i].name + ' is purchasing ' + shoppers[i].amount +
+         ' of stuff. He will get ' + discountedAmount +
+         ' off the purchase and pay ' +
+         (shoppers[i].amount - discountedAmount) + '.';
+     console.log(output);
+ }
+shoppers.forEach(function(shopper) {
+    var discountedAmount = calculateDiscount(shoppers.amount, discountThreshold, discountPercentage);
+    var output = shopper.name + ' is purchasing ' + shopper.amount +
+        ' of stuff. He will get ' + discountedAmount +
+        ' off the purchase and pay ' +
+        (shoppers.amount - discountedAmount) + '.';
+    console.log(output);
 });
 
 
+//shapes.forEach(function(shape) {
+ //     console.log('Here is a lovely shape: ' + shape + '.');
+ // });
 
 
 
+ //  rough draft: shoppers.forEach(function(shopper){
+//          if( shopper > 200 ) {
+//              var newTotal = shopper.amount - (shopper.amount * .12)
+//              console.log(shopper.name + "you spent: " + shopper.amount
+//                  + "so heres a discount:"  + newTotal);
+//          } else {
+//              console.log("sorry " + shopper + "you didn\'t spend enough, you only spent " + customer.amount);
+//          }
+// });
+// Example HEB problem  Expected output...
+ //
+ //         Cameron is purchasing $180.00 of stuff. He will get $0.00 off the purchase and pay $180.00.
+ //         Ryan is purchasing $250.00 of stuff. He will get $30.00 off the purchase and pay $220.00.
+ //         George is purchasing $320.00 of stuff. He will get 38.40 off the purchase and pay $281.60.
+ //
+ //      */
+ //
+ //     var discountThreshold = 200;
+ //     var discountPercentage = .12;
+ //
+ //     var shoppers = [
+ //         {name: 'Cameron', amount: 180},
+ //         {name: 'Ryan', amount: 250},
+ //         {name: 'George', amount: 320}
+ //     ];
+ //
+ //     /**
+ //      * Calculates the total amount of discount given the amount, discount threshold, and discount percentage
+ //      * @param amount
+ //      * @param threshold
+ //      * @param discountPercentage
+ //      * @returns {number|number}
+ //      */
+ //     function calculateDiscount(amount, threshold, discountPercentage) {
+ //         return (amount > threshold) ? amount * discountPercentage : 0;
+ //     }
+ //
+ //     function numToCurrency(num) {
+ //         return '$' + num.toFixed(2);
+ //     }
+ //
+ //     function formatOutput(shopper, discountedAmount) {
+ //         return shopper.name + ' is purchasing ' + numToCurrency(shopper.amount) +
+ //             ' of stuff. He will get ' + numToCurrency(discountedAmount) +
+ //             ' off the purchase and pay ' +
+ //             numToCurrency(shopper.amount - discountedAmount) + '.';
+ //     }
+ //
+ //     function logInfoForAllShoppers(shoppers, discountThreshold, discountPercentage) {
+ //         shoppers.forEach(function(shopper) {
+ //             var discountedAmount = calculateDiscount(shopper.amount, discountThreshold, discountPercentage);
+ //             var output = formatOutput(shopper, discountedAmount);
+ //             console.log(output);
+ //         });
+ //     }
+ //
+ //     logInfoForAllShoppers(shoppers, discountThreshold, discountPercentage);
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -119,4 +207,4 @@
      *   `showBookInfo` function.
      */
 
- })();
+ // })();
