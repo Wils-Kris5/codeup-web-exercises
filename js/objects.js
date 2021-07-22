@@ -30,8 +30,8 @@
     person.firstName = "Kristen",
     person.lastName = "Wilson"
     person.sayHello = function() {
-       console.log("Hey you! it\'s " + this.firstName + " " + this.lastName + "!");
-
+        console.log("Hey you! it\'s " + this.firstName + " " + this.lastName + "!")
+    }
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
