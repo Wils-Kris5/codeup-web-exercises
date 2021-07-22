@@ -31,8 +31,7 @@
     person.lastName = "Wilson"
     person.sayHello = function() {
        console.log("Hey you! it\'s " + this.firstName + " " + this.lastName + "!");
-    };
-    console.log(person.sayHello());
+
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -47,14 +46,14 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+     //
+     // var discountThreshold = 200
+     // var shoppers = [
+     //    {name: 'Cameron', amount: 180},
+     //    {name: 'Ryan', amount: 250},
+     //    {name: 'George', amount: 320}
 
-     var discountThreshold = 200
-     var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-
-    ];
+    // ];
   // if purchasing more than 200, will get 12% off
 
  // Cameron is purchasing $180.00. He will get 0.00 off and now pay 180.00
@@ -63,35 +62,35 @@
  // George is buying 320.00 of stuff. he will get 38.40 off the purchase and pay 281.60
 
 
-                                                                                      // vvv  good place for a function
-     var output1 = "Cameron is buying " + shoppers[0].amount + " of stuff. He will get " +
- console.log(output1);
-
-function calculateDiscount(amount, threshold, discountPercentage) {
-    // if the amount is greater than the threshold apple the discount
-    if (amount <= threshold) {
-        return 0
-    } else {
-        return (amount * discountPercentage);
-    }
-}
-
- for (var i = 0; i < shoppers.length; i += 1) {
-     var discountedAmount = calculateDiscount(shoppers[i].amount, discountThreshold, discountPercentage);
-     var output = shoppers[i].name + ' is purchasing ' + shoppers[i].amount +
-         ' of stuff. He will get ' + discountedAmount +
-         ' off the purchase and pay ' +
-         (shoppers[i].amount - discountedAmount) + '.';
-     console.log(output);
- }
-shoppers.forEach(function(shopper) {
-    var discountedAmount = calculateDiscount(shoppers.amount, discountThreshold, discountPercentage);
-    var output = shopper.name + ' is purchasing ' + shopper.amount +
-        ' of stuff. He will get ' + discountedAmount +
-        ' off the purchase and pay ' +
-        (shoppers.amount - discountedAmount) + '.';
-    console.log(output);
-});
+//                                                                                       // vvv  good place for a function
+//      var output1 = "Cameron is buying " + shoppers[0].amount + " of stuff. He will get " +
+//  console.log(output1);
+//
+// function calculateDiscount(amount, threshold, discountPercentage) {
+//     // if the amount is greater than the threshold apple the discount
+//     if (amount <= threshold) {
+//         return 0
+//     } else {
+//         return (amount * discountPercentage);
+//     }
+// }
+//
+//  for (var i = 0; i < shoppers.length; i += 1) {
+//      var discountedAmount = calculateDiscount(shoppers[i].amount, discountThreshold, discountPercentage);
+//      var output = shoppers[i].name + ' is purchasing ' + shoppers[i].amount +
+//          ' of stuff. He will get ' + discountedAmount +
+//          ' off the purchase and pay ' +
+//          (shoppers[i].amount - discountedAmount) + '.';
+//      console.log(output);
+//  }
+// shoppers.forEach(function(shopper) {
+//     var discountedAmount = calculateDiscount(shoppers.amount, discountThreshold, discountPercentage);
+//     var output = shopper.name + ' is purchasing ' + shopper.amount +
+//         ' of stuff. He will get ' + discountedAmount +
+//         ' off the purchase and pay ' +
+//         (shoppers.amount - discountedAmount) + '.';
+//     console.log(output);
+// });
 
 
 //shapes.forEach(function(shape) {
