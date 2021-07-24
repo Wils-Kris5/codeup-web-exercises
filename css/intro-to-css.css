@@ -1,0 +1,20 @@
+h1 {
+    color: fuchsia;
+    text-align: center;
+    font-size: 150px;
+}
+/*class selectors */
+.dark-orange{
+    color: darkorange;
+}
+/* id selector */
+#intro-to-classes {
+    color: gold;
+}
+/*
+THIS
+IS
+A
+MULTILINE
+COMMENT
+ */
