@@ -172,6 +172,7 @@ For the direct-child selector a greater than symbol, >, is used in place of the 
 /*font-size: 10px;*/
 /*}*/
 
+
 /*a:visited {*/
 /*font-size: 20px;*/
 /*}*/
@@ -181,10 +182,12 @@ For the direct-child selector a greater than symbol, >, is used in place of the 
 font-family: fantasy;*/
 /*}*/
 
+
 /*!*a:active {*! (when you click on the link)*/
 /*font-size: 40px;*/
 /*color: black;*/
 /*}*/
+
 
 
 

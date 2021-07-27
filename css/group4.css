@@ -1,0 +1,93 @@
+/*KYLE*/
+/*How does the unset CSS property work?
+- The unset CSS keyword resets a property to its inherited value if the property
+naturally inherits from its parent, and to its initial value if not. */
+.first {
+    color: blue;
+}
+.second {
+    color: green;
+}
+p {
+    color: red;
+}
+.second p {
+    color: unset;
+}
+/*KRISTEN*/
+/*How does the inherit property work?
+- The inherit property causes the element for which it is specified to
+take the computed value of the property from its parent element.
+- It is allowed on every CSS property
+- Tells the browser to search for the closest parent element's value and lets the
+current element inherit that value.
+- The keyword value of inherit tells the browser to search for the closest
+parent element's value and lets the current element inherit that value.
+- If the closest parent has an inherit value too, the browser will continue going
+up the DOM (Document Object Model) until it finds some value. If there isn't any
+value, the browser will use its user-agent style, and if there isn't any user-agent
+style, it will use the initial base style.*/
+/*div.box{*/
+/*    background-color: red;*/
+/*    display: initial; !* will be equal to inline and not to block *!*/
+/*}*/
+/*This gives an initial value to the display property*/
+/*NACHO*/
+/*How can CSS transform rotate or change the size of a displayed element?
+- The rotate() CSS function defines a transformation that rotates an element
+around a fixed point on the 2D plane, without deforming it. Its result is a
+<transform-function> data type.
+- The fixed point that the element rotates around — mentioned above — is also
+known as the transform origin. This defaults to the center of the element, but you
+can set your own custom transform origin using the transform-origin property.*/
+/*div {*/
+/*    width: 80px;*/
+/*    height: 80px;*/
+/*    background-color: skyblue;*/
+/*}*/
+/*.second {*/
+/*    transform: rotate(45deg); !* Equal to rotateZ(45deg) *!*/
+/*    background-color: greenyellow;*/
+/*}*/
+/*You can also rotate using different formats... i.e. radius, turn, and degree.*/
+/*IAN*/
+/*How do CSS transitions work (focus on a simple example)?
+        - A transition occurs when a CSS property changes from one value to another
+        value over a period of time.
+The transition property is a shorthand of
+four CSS properties:
+- transition-property
+- transition-duration
+- transition-timing-function
+- transition-delay
+                    Triggering transitions
+                    - You can trigger CSS transitions directly with pseudo classes
+                    like :hover (activates when mouse goes over an element),
+                    :focus (activates when a user tabs onto an element, or when a
+                    user clicks into an input element), or :active (activates when
+                    user clicks on the element).
+- To create a transition, you overwrite a property in a class (or pseudo class),
+and you specify the property to transit in transition or transition-property.
+- Transitions enable you to define the transition between two states of an element.
+- Different states may be defined using pseudo-classes like :hover or :active
+or dynamically set using JavaScript.*/
+/*EX: 1*/
+/*.second {*/
+/*    font-size: 14px;*/
+/*    transition-property: font-size;*/
+/*    transition-duration: 4s;*/
+/*    transition-delay: 2s;*/
+/*}*/
+/*div:hover {*/
+/*    font-size: 80px;*/
+/*}*/
+/*EX 2:*/
+/*div {*/
+/*    width: 80px;*/
+/*    height: 80px;*/
+/*    background: lightpink;*/
+/*    transition: width 4s;*/
+/*}*/
+/*div:hover {*/
+/*    width: 300px;*/
+/*}*/
