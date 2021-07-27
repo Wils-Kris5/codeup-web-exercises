@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Positioning Lecture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+
+    /*
+        POSITIONING
+        Positioning Elements
+The default positioning for elements is referred to as static. This just means that the element will be rendered in order with the normal flow of the document. When elements that have a position property set to something other than static,
+ there are a few other properties that become applicable. These properties are top, left, bottom, and right.
+
+Top / Left / Bottom / Right
+The top, left, bottom, and right properties can be assigned pixel values to describe how far away from the corresponding
+position the box for the target element will be displayed. These properties will have no impact on an element with the default position:static, but we will be using them in the sections below.
+
+Relative Positioning
+By assigning the property value position:relative to an element,
+ you enable the top, left, bottom, right properties.
+ When used with a relatively positioned element, these properties will shift the element from its normal position
+  by the amount specified.
+
+            1) Static - default
+            2) Relative - can move elements up and down visually, still in document flow
+            3) Absolute - taken out of document flow and relative to its relative parent
+            4) Fixed - taken out of the document flow
+    */
+
+    body {
+      background-color: black;
+      margin: 0;
+    }
+    .container {
+      background-color: lightcoral;
+      min-height: 2000px;
+      width: 600px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .box1 {
+      height: 150px;
+      width: 150px;
+      background: green;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    .box2 {
+      height: 200px;
+      width: 200px;
+      background: blue;
+      position: relative;
+      right: 15px;
+    }
+    span {
+      color: lightgray;
+      font-size: 2em;
+      font-family: sans-serif;
+    }
+
+  </style>
+</head>
+<body>
+<main class="container">
+  <div class="box1">
+    <span>Box 1</span>
+  </div>
+  <div class="box2">
+    <span>Box 2</span>
+  </div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur dolorem doloremque ea, eaque
+    ex incidunt inventore minus mollitia praesentium quo quos repellat voluptas. Aliquid asperiores assumenda aut
+    blanditiis cupiditate deleniti distinctio ea exercitationem fugit illo in incidunt labore nam nesciunt provident
+    quaerat quam qui, repellendus sed similique vel voluptatem?
+  </p>
+</main>
+</body>
+</html>
