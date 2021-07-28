@@ -1,0 +1,48 @@
+body {
+    box-sizing: border-box;
+}
+
+.flexbox, .flex-item {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.flexbox {
+    display: flex;
+     flex-direction: row;    /* column *!*/
+    /*gives you the ability to adjust as if block elements but works differently *!*/
+    /*!* Flex direction defines the  main axis*!*/
+    flex-wrap: wrap; /* wrap will flow like how inline*/
+    /*elements flow but you have to set it explicitly to wrap *!*/
+    /*flex-flow: row wrap;*/
+    /*justify-content: space-evenly; !* space-evenly gives you equal space distributed*/
+    /*> align-items controls how flex lines are distributed along the container cross-axis*!*/
+    *align-items: flex-start;
+    /*align-content: stretch;*/
+    /*height: 900px;*/
+}
+/* flex-grow
+ define if a flex item can grow when there is available space,
+  and how much is grows to its siblings
+
+ */
+
+
+/*.five {*/
+/*    flex-grow: 1;*/
+/*}*/
+/*.four {*/
+/*    flex-grow: 1;*/
+/*}*/
+/*.three {*/
+/*    flex-grow: 2;*/
+/*}*/
+
+/*.large-font {*/
+/* font-size: 150%;*/
+/*}*/
+/*bigger-margin {*/
+/*    margin-top:30px;*/
+
+/*}*/
