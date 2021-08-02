@@ -41,7 +41,7 @@ function createNames(firstNames, lastNames) {
             firstName: [],
             lastNames: lastNames[index]
         });
-    });
+    }
     return names;
 }
 console.log(createNames(firstnames, lastNames));
