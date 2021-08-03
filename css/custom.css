@@ -1,0 +1,11 @@
+.jumbotron {
+
+    background-image: url("../img/pizza.png");
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    color: black !important;
+    padding: 64px 0 64px 0;
+
+
+}
