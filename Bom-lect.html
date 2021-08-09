@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM</title>
+</head>
+<body>
+<script>
+    console.log(window);
+    var instructorName = "Douglas";
+    console.log(window.instructorName);
+    // anything attached to the global space is attached to the
+    // window so you dont have to put window again in front of it > single use is preferred = local variable
+   // console.log(instructorName);
+   //
+   // alert("Hello, " + instructorName);
+   // var shouldAlert = confirm("Are you sure?");
+   // if(shouldAlert) {
+   //     alert("Deleting everything, lol jk :P");
+   // }
+
+
+// prompt()
+//     var userName = prompt("Enter your name");
+//     if(userName) {
+//         alert("hello, " + userName);
+//     }
+// setInterval();
+//     var consoleLogInterval = 1000;
+//     var consoleLogIntervalCount = 0;
+//
+// setInterval(function() {
+//     console.log("Howdy!" + consoleLogIntervalCount);
+//     consoleLogIntervalCount++;
+// }, consoleLogInterval);
+
+// inline interval value
+//     setInterval(function () {
+//         console.log("Inline interval time");
+//     }, 1000)
+//
+//     function sayHello() {
+//         console.log("Howdy")
+//     }
+//     setInterval(sayHello, consoleLogInterval);
+
+    // var areWeThereYetInterval = 1000;
+    // var areWeThereYetCount = 0;
+    //
+    // function sayAreWeThereYet() {
+    //     console.log("Are we there yet " + areWeThereYetCount + " time!");
+    //     areWeThereYetCount++
+    // }
+    // var intervalId = setInterval(sayAreWeThereYet, areWeThereYetInterval);
+    // console.log(intervalId);
+    //
+
+// setTimeout()
+    var delay = 5000;
+
+
+    var timeoutId = setTimeout(function() {
+        confirm("Click okay to claim your gas card");
+    }, delay);
+
+// Location : The location object is aware of the currently loaded document and provides detailed url information.
+    // The location object can also be used to redirect the browser to a new location.
+// setTimeout(function () {
+//     location = 'http://www.google.com';
+// }, 2000)
+
+    setTimeout(function(){
+        console.log("Reloading...")
+        location.reload();
+
+    }, 3000);
+
+</script>
+</body>
+</html>
