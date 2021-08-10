@@ -50,10 +50,15 @@
         console.log(listItems);
 
         // TODO: Set text color on every other list item to grey
-        var listItemTextColor
-
+        for(var i = 0; i < listItems.length; i++) {
+            if((i+1) % 2 == 0) {
+                listItems[i].style.color = "grey";
+            }
+        }
+         console.log(listItems);
 
         // TODO: Set text color of li with dbid = 1 to blue
+        listItems.style['li']
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         // var subParagraphs = ;

@@ -6,9 +6,10 @@
 //
 //     ## Problems
 //
-// 1. Create a function, `printAll`, that takes an array and logs every element on a new line in the console.
+// 1. Create a function, `printAll`, that takes an array
+// and logs every element on a new line in the console.
 function printAll(arr) {
-
+return document.write();
 
 }
 //     ```javascript
