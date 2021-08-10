@@ -6,15 +6,19 @@
 </head>
 <body>
 
+<button id="mainHdrBtn">main-headerButton</button>
 <h1 id="main-header">Hello World!</h1>
 <ul>
+    <button id="listItemBtn">List Button</button>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
     <li data-dbid="3">Item 3</li>
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+<button id="subHdrBtn">sub-headerButton</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="subParaBtn">Sub-P Button</button>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -33,7 +37,7 @@
          var mainHeader = document.getElementById('main-header');
          console.log(mainHeader.innerHTML); // Hello World!
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        // TODO: Set inner html of mainHeader to "JavaScript is Cool"   //Button1
           mainHeader.innerHTML = "Javascript is Cool"; // JavaScript is Cool
 
           console.log(mainHeader.innerHTML);
@@ -41,36 +45,76 @@
         var subHeader = document.getElementById('sub-header');
            console.log(subHeader);
 
-        // TODO: Set the text color of subHeader to blue
 
-       var subHeaderTextColor = subHeader.style.color = '#0000FF'; // blue
-        console.log(subHeaderTextColor);
-        // TODO: Uncomment the next line and get all list items
-        var listItems = document.querySelectorAll("li");
-        console.log(listItems);
 
-        // TODO: Set text color on every other list item to grey
+        // TODO: Set text color of li with dbid = 1 to blue  //Button2
+        // youre getting the attributte and if its equal to 1 run second if statement
+       //  // TODO: Set the text color of subHeader to blue
+       //
+       // var subHeaderTextColor = subHeader.style.color = 'blue'; // blue
+       //  console.log(subHeaderTextColor);
+       //  // TODO: Uncomment the next line and get all list items
+       //  var listItems = document.querySelectorAll('li');
+       //  console.log(listItems);
+
+
+        //TODO: Set text color of li with dbid = 1 to blue  //Button2
+        // TODO: Set text color on every other list item to grey //Button2
+
         for(var i = 0; i < listItems.length; i++) {
-            if((i+1) % 2 === 0) {
-                listItems[i].style.color = "grey";
-            }
-           // youre getting the attributte and if its equal to 1 run second if statement
             if(listItems[i].getAttribute('data-dbid') === "1") {
-               listItems[i].style.color = "blue";
+                listItems[i].style.color = "blue";
+            }
+             if((i+1) % 2 === 0) {
+                listItems[i].style.color = "grey";
+
             }
         }
          console.log(listItems);
 
-        // TODO: Set text color of li with dbid = 1 to blue
-
-       // var elmQuery = document.querySelector('li[data-dbid="1"]').style.color
-        // listItems[0].style.color
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
          var subParagraphs = document.getElementsByClassName('sub-paragraph');
            console.log(subParagraphs);
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-       var subparagraph = subParagraphs[0];
+
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!" Button4
+        var subparagraph = subParagraphs[0];
        subparagraph.innerText = 'Mission Accomplished!';
+
+
+// =================Buttons
+
+
+        // Main-Header Button
+        var mainHeader = document.getElementById('main-header');
+            var mainHdrBtn = document.getElementById('mainHdrBtn');
+            mainHdrBtn.addEventListener('click', function() {
+            document.getElementById('main-header').innerHTML = 'Javascript is cool.'
+        });
+
+         // Sub-Header Button
+        var subHeader = document.getElementById('sub-header');
+             var subHdrBtn = document.getElementById('subHdrBtn');
+               subHdrBtn.addEventListener('click', function() {
+               document.getElementById('sub-header').innerHTML = 'Hello Again'
+           });
+
+        // List-Items Button
+        var subHeaderTextColor = subHeader.style.color = 'blue'; // blue
+            var listItemsBtn = document.getElementsByTagName('li');
+        for(var i = 0; i < listItems.length; i++) {
+            if(listItems[i].getAttribute('data-dbid') === "1") {
+                listItems[i].style.color = "blue";
+            }
+            if((i+1) % 2 === 0) {
+                listItems[i].style.color = "grey";
+
+            }
+        }
+   // Sub-Paragraph Button
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+        var subParaBtn = document.getElementsByClassName('sub-paragraph')[0];
+           subParBtn.addEventListener("click", changeSubPara);
+            subPara.innerHTML = "Mission Accomplished!";
 
     })();
 </script>
