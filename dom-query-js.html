@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>DOM: Query and Modify</title>
@@ -44,26 +44,34 @@
         // TODO: Set the text color of subHeader to blue
 
        var subHeaderTextColor = subHeader.style.color = '#0000FF'; // blue
-
+        console.log(subHeaderTextColor);
         // TODO: Uncomment the next line and get all list items
         var listItems = document.querySelectorAll("li");
         console.log(listItems);
 
         // TODO: Set text color on every other list item to grey
         for(var i = 0; i < listItems.length; i++) {
-            if((i+1) % 2 == 0) {
+            if((i+1) % 2 === 0) {
                 listItems[i].style.color = "grey";
+            }
+           // youre getting the attributte and if its equal to 1 run second if statement
+            if(listItems[i].getAttribute('data-dbid') === "1") {
+               listItems[i].style.color = "blue";
             }
         }
          console.log(listItems);
 
         // TODO: Set text color of li with dbid = 1 to blue
-        listItems.style['li']
 
+       // var elmQuery = document.querySelector('li[data-dbid="1"]').style.color
+        // listItems[0].style.color
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
-
+         var subParagraphs = document.getElementsByClassName('sub-paragraph');
+           console.log(subParagraphs);
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+       var subparagraph = subParagraphs[0];
+       subparagraph.innerText = 'Mission Accomplished!';
+
     })();
 </script>
 </body>
