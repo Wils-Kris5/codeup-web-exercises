@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Warmups</title>
+</head>
+<body>
+<h1 id="goodMorning">Good Morning, Draco!</h1>
+<button id="afternoon">It's afternoon</button>
+<script src="js/dom-warmups.js">
+  //When a user clicks on the button,
+  // the header text should change to say “Good Afternoon, Draco!”
+
+    var afterNoonBtn = document.getElementById("afternoon");
+    var header = document.getElementById("goodmorning");
+    var changeHeader = function(){
+      header.innerHTML = "Good Afternoon, Draco!"
+    }
+    afterNoonBtn.addEventListener('click', changeHeader);
+
+
+
+
+
+</script>
+</body>
+</html>
