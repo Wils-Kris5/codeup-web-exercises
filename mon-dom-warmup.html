@@ -7,21 +7,52 @@
 <body>
 <h1 id="goodMorning">Good Morning, Draco!</h1>
 <button id="afternoon">It's afternoon</button>
-<script src="js/dom-warmups.js">
-  //When a user clicks on the button,
-  // the header text should change to say “Good Afternoon, Draco!”
+<section>
+  <button data-number="1">Change Me</button>
+  <button data-number="2">Change Me Too</button>
+  <button data-number="3">Don't forget about me</button>
+  <p id="message"></p>
+</section>
+<button id="reset">Reset</button>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  // var afternoonButton = document.getElementById("afternoon");
+  // var header = document.getElementById("goodMorning");
+  // var changeHeader = function(){
+  //     header.innerHTML = "Good Afternoon, Draco!"
+  // }
+  // <!--<h1 id="goodMorning">Good Morning, Draco!</h1>-->
+  // <!--<button id="afternoon">It's afternoon</button>-->
+  // <script src="js/dom-warmups.js">
+          //<!--  //When a user clicks on the button,-->
+          //<!--  // the header text should change to say “Good Afternoon, Draco!”-->
 
-    var afterNoonBtn = document.getElementById("afternoon");
-    var header = document.getElementById("goodmorning");
-    var changeHeader = function(){
-      header.innerHTML = "Good Afternoon, Draco!"
-    }
-    afterNoonBtn.addEventListener('click', changeHeader);
+          <!--    var afterNoonBtn = document.getElementById("afternoon");-->
+          <!--    var header = document.getElementById("goodmorning");-->
+          <!--    var changeHeader = function(){-->
+          <!--      header.innerHTML = "Good Afternoon, Draco!"-->
+          <!--    }-->
+          <!--    afterNoonBtn.addEventListener('click', changeHeader);-->
 
 
+          document.getElementById("afternoon").addEventListener('click', function(){
+    document.getElementById("goodMorning").innerHTML = "Good Afternoon, Draco!"
+  });
 
+  $("section button").hover(
+          function(e){
+            $(e.target).css("background-color", "hotpink");
+            var number = $(this).attr("data-number");
+            $("#message").html(number);
+          },
+          function(e) {
+            $(e.target).css("background-color", "white");
+            $("#message").html("");
+          });
 
-
+  $("#reset").click(function(){
+    location.reload();
+  });
 </script>
 </body>
 </html>
