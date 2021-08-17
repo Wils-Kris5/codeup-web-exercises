@@ -7,7 +7,13 @@
 section {
   display: flex;
 }
-
+.sansSerif {
+  font-family: sans-serif;
+}
+.darkMode {
+  color: white;
+  background-color: #313131;
+}
 
   </style>
 </head>
@@ -43,14 +49,27 @@ section {
     <li><a href="#">Privacy Policy</a></li>
   </ul>
 </footer>
+<script src="js/jquery-3.6.0.min.js"></script>
 <script>
   "use strict";
   $(document).ready(function() {
-
-
+    // $("li").each(function(){
+    //   $(this).css("font-style", "italic");
+    // });
     $("li").each(function () {
       $(this).css("font-style", "italic");
     });
+//The *this* keyword works with the each method, because each time the each method iterates over a nodeList, it returns an object representing that element. *this* always applies to the currently referenced object. In this case, whatever element is being iterated over at that particular moment.
+
+    // $("li").each(function(index, element){
+    //   $(element).css("font-family", "sans-serif").css("font-style", "italic");
+    //   console.log(index);
+    //   if (index % 2 !==0){
+    //     $(element).css("background-color", "cornsilk");
+    //     console.log($(this).css("background-color"));
+    //   }
+    // });
+
 
     /* the *this* keyword works with the each method, bc each time
 * the each method iteratets over a nodeList, it returns an object
@@ -79,7 +98,7 @@ section {
 
   $("#font-changer").click(function(){
           //$("main").children().css("font-family", "sans-serif");
-    $("main").children().toggleCLass("sansSerif");
+    $("main").children().first().next().toggleCLass("sansSerif");
  });
 
 $("h2").click(
@@ -87,6 +106,11 @@ $("h2").click(
           $(this).next().slideToggle();
         }
         );
+    $("h1").hover(
+            function(){
+              $(this).parent().toggleClass("darkMode");
+            }
+    );
 
   });
 
