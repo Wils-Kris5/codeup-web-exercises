@@ -24,6 +24,7 @@
 <!--Create some CSS rules that sets elements with the invisible class to visibility: hidden;.-->
 
 <!--Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.-->
+
 <dl>
     <dt>Andromeda</dt>
     <dd>The Andromeda Galaxy, also known as Messier 31, M31, or NGC 224 and originally the Andromeda Nebula, is a barred spiral galaxy approximately 2.5 million light-years from Earth and the nearest major galaxy to the Milky Way.</dd>
@@ -56,9 +57,13 @@
     <dd>Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half times that of all the other planets in the Solar System combined. </dd>
 </dl>
 
-<!--//Under the FAQ, add 3 unordered lists like above. Each list should contain a name in an h3 element, and a ul of 4 facts .-->
-    <h3>Name1</h3>
-    <ul>
+<!--//Under the FAQ, add 3 unordered lists like above.
+ Each list should contain a name in an h3 element,
+and a ul of 4 facts .-->
+
+<main>
+    <h3 id="astronomy-names">Name1</h3>
+    <ul id="astronomy-list-names">
         <li>factOne</li>
         <li>factTwo</li>
         <li>factThree</li>
@@ -67,7 +72,7 @@
 
 
     <h3>Name2</h3>
-    <ul>
+    <ul id="astronomy-list-facts">
     <li>factOne</li>
     <li>factTwo</li>
     <li>factThree</li>
@@ -75,26 +80,31 @@
     </ul>
 
     <h3>Name3</h3>
-    <ul>
+    <ul id="astronomy-list-links">
     <li>factOne</li>
     <li>factTwo</li>
     <li>factThree</li>
     <li>factFour</li>
     </ul>
-<!--Create a button that, when clicked, makes the last li in each ul have a yellow background.-->
-<aside>
-    <button id="font-changer">Change Font of 'Another topic'</button>
-</aside>
+    <button id="lastListItem">Yellow Background Btn</button>
+<!--Create a button that, when clicked,
+makes the last li in each ul have a yellow background.-->
+
+</main>
 <!--When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.-->
 
 <!--When any list item is clicked, first li of the parent ul should have a font color of blue.-->
 
 
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
-    $(document).ready(function (){
+    "use strict";
+    $(document).ready(function() {
+
+
         $('dd').addClass("invisible");
 
         $('#toggle').click(function(){
@@ -104,7 +114,25 @@
         $('dt').click(function(e){
             $(e.target).toggleClass("highlight");
         });
-    })
+
+   $("#lastListItem").click(function(){
+       $('ul li:last-child').css('background-color', '#FF0');
+   });
+        <!--When any list item is clicked, first li of the parent ul should have a font color of blue.-->
+
+   $("h3").click(function(){
+       $(this).siblings().css("font-weight", "bold");
+
+   });
+
+   <!--When any list item is clicked, first li of the parent ul should have a font color of blue.-->
+        $("li").click(function(){
+            $(this).siblings().first().next().css("color", "blue");
+   });
+
+
+
+    });
 </script>
 </body>
 </html>
