@@ -36,6 +36,11 @@
    In this file, create a Mapbox map that shows your home town.
  After 5 seconds, have the map automatically change to a map of the entire United States using a satellite style.*/
 
+   setTimeout(function() {
+       map.setZoom(3);
+       map.setStyle('mapbox://styles/mapbox/satellite-v9');
+       map.setCenter([-100.9431, 20.6047]);
+   }, 5000);
 
 
 
