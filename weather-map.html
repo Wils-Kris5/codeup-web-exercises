@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map Project!</title>
+</head>
+<body>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+<script src="js/mapbox-geocode-utils.js"></script>
+<script src="js/keys.js"></script>
+<script>
+"use strict"
+
+
+$.get('http://api.openweathermap.org/data/2.5/onecall', {
+    appid: WEATHER_PROJ_API,
+    lat: 32.7767,
+    lon: -96.7970,
+    units: 'imperial',
+    exclude: 'minutely, hourly'
+}).done(function(object){
+   console.log(object);
+});
+
+/*
+weather-map.html?_ij…flpo3&_ij_reload:25
+{lat: 32.7767, lon: -96.797, timezone: "America/Chicago", timezone_offset: -18000, current: {…}, …}
+current: {dt: 1629479103, sunrise: 1629460460, sunset: 1629508021, temp: 89.8, feels_like: 99.75, …}
+daily: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+hourly: (48) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+lat: 32.7767
+lon: -96.797
+timezone: "America/Chicago"
+timezone_offset: -18000
+[[Prototype]]: Object
+*
+*
+*
+* */
+
+
+</script>
+
+</body>
+</html>
