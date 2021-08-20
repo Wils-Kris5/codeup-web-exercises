@@ -31,13 +31,20 @@ $.get('http://api.openweathermap.org/data/2.5/onecall', {
     console.log((new Date((object.current.sunrise * 1000))));
     console.log('sunset log')
     console.log((new Date((object.current.sunset * 1000))));
-   object.daily.forEach(function(weather){
-        console.log(weather);
+    object.daily.forEach( function () {
+    });
+  //  console.log(object.daily[0]) gives the week
+    //now we want to loop through to get the individual day
+    // for(var i = 0; i < object.daily.length; i++){  my break down
+    // console.log(object.daily[i].dt) // what i came to
+    //
+    // object.daily.forEach( function () {  //kyles suggestion
+// });
     });
 
 
 
-});
+
 
 /*
 weather-map.html?_ij…flpo3&_ij_reload:25
