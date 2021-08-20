@@ -23,6 +23,14 @@ $.get('http://api.openweathermap.org/data/2.5/onecall', {
     exclude: 'minutely, hourly'
 }).done(function(object){
    console.log(object);
+    console.log('time and date log')
+    console.log(new Date((object.current.dt * 1000)));
+    console.log('temp log')
+    console.log(object.current.temp);
+    console.log('sunrise log')
+    console.log((new Date((object.current.sunrise * 1000))));
+    console.log('sunset log')
+    console.log((new Date((object.current.sunset * 1000))));
 });
 
 /*
