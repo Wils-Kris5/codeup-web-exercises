@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MaxBox Map 2</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+
+    <style>
+
+        #map {
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="map"></div>
+
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+
+<script>
+"use strict";
+
+
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-77.0502, 38.8893],  //starting position[ lng, lat]
+        zoom: 10 // starting zoom
+    });
+    // var alamoMarker = new mapboxgl.Marker()
+    //     .setLngLat([-98.4861, 29.4260])
+    //     .addTo(map);
+
+    // var memorialPopup = new mapboxgl.Popup()
+    //    .setHTML('<h1>Lincoln Memorial</h1>');
+    //
+    // var memorialMarker = new mapboxgl.Marker({dragable: true})
+    //  .setLngLat([-77.0502, 38.8893])
+    //  .setPopup(memorialPopup)
+    //  .addTo(map);
+    //
+    // memorialMaker.on('dragend', function(){
+    //     var markerCoordinates = memorialMarker.getLngLat();
+    //     //document.querySelector('#coordinates').innerHTML = markerCoordinates.lng;
+    //     memorialPopup.setHTML(markerCoordinates.lng);
+
+    });
+//geocode("1600 Pennsylvania Ave.", MAPBOX_API_TOKEN).then(function(result) {
+// map.setCenter(result);
+// map.setZoom(13);
+// });
+
+
+
+</script>
+<!--In this file, create a Mapbox map that shows Washington D.C. with a marker on the Lincoln Memorial.
+Add a popup to the Lincoln Memorial marker that contains the text “Lincoln Memorial”
+Bonus: when the marker is dragged and released, display the coordinates in an h1 (edited) -->
+</body>
+</html>

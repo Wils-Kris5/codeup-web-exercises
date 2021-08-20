@@ -22,26 +22,26 @@
 <script>
    "use strict"
 
-
-   mapboxgl.accessToken = MAPBOX_API_TOKEN;
-   const map = new mapboxgl.Map({
-       container: 'map', // container ID
-       style: 'mapbox://styles/mapbox/streets-v11', // style URL
-       center: [-80.5, 40], // starting position [lng, lat]
-       zoom: 5 // starting zoom
-   });
-   map.setZoom(10);
-  /* Mini - Exercise 1 (after customizing map)
-   Create an HTML file called mapbox-1.html
-   In this file, create a Mapbox map that shows your home town.
- After 5 seconds, have the map automatically change to a map of the entire United States using a satellite style.*/
-
-   setTimeout(function() {
-       map.setZoom(3);
-       map.setStyle('mapbox://styles/mapbox/satellite-v9');
-       map.setCenter([-100.9431, 20.6047]);
-   }, 5000);
-
+ //
+ //   mapboxgl.accessToken = MAPBOX_API_TOKEN;
+ //   const map = new mapboxgl.Map({
+ //       container: 'map', // container ID
+ //       style: 'mapbox://styles/mapbox/streets-v11', // style URL
+ //       center: [-80.5, 40], // starting position [lng, lat]
+ //       zoom: 5 // starting zoom
+ //   });
+ //   map.setZoom(10);
+ //  /* Mini - Exercise 1 (after customizing map)
+ //   Create an HTML file called mapbox-1.html
+ //   In this file, create a Mapbox map that shows your home town.
+ // After 5 seconds, have the map automatically change to a map of the entire United States using a satellite style.*/
+ //
+ //   setTimeout(function() {
+ //       map.setZoom(3);
+ //       map.setStyle('mapbox://styles/mapbox/satellite-v9');
+ //       map.setCenter([-100.9431, 20.6047]);
+ //   }, 5000);
+ //
 
 
 </script>
