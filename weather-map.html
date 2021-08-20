@@ -31,6 +31,12 @@ $.get('http://api.openweathermap.org/data/2.5/onecall', {
     console.log((new Date((object.current.sunrise * 1000))));
     console.log('sunset log')
     console.log((new Date((object.current.sunset * 1000))));
+   object.daily.forEach(function(weather){
+        console.log(weather);
+    });
+
+
+
 });
 
 /*
