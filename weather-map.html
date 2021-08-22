@@ -3,50 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map Project!</title>
+    <link rel="stylesheet" href="css/weather-map.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 <body>
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <input type="text" placeholder="Search..">
+</div>
 
+
+<div id="map" class="container"></div>
+
+<!--//script for jquery-->
 <script src="js/jquery-3.6.0.min.js"></script>
+
+<!--script for ajax-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+
+
+
+<!--script for geo/reverse geo-->
 <script src="js/mapbox-geocode-utils.js"></script>
+
+<!--WEATHER_PROJ_API/CLASS TOKEN EXAMPLE-->
 <script src="js/keys.js"></script>
+
+
+
 <script>
 "use strict"
+getWeather();
+function getWeather(climate) {
+    $.get('http://api.openweathermap.org/data/2.5/onecall', {
+        appid: WEATHER_API_KEY,             //get request being made
+        lat: 32.7767,
+        lon: -96.7970,
+        units: 'imperial',
+        exclude: 'minutely, hourly'
+    }).done(function (climate) {           //when Ajax data is logged were gonna handle the data
+        handleAllData(climate)
 
-
-$.get('http://api.openweathermap.org/data/2.5/onecall', {
-    appid: WEATHER_PROJ_API,
-    lat: 32.7767,
-    lon: -96.7970,
-    units: 'imperial',
-    exclude: 'minutely, hourly'
-}).done(function(object){
-   console.log(object);
-    console.log('time and date log')
-    console.log(new Date((object.current.dt * 1000)));
-    console.log('temp log')
-    console.log(object.current.temp);
-    console.log('sunrise log')
-    console.log((new Date((object.current.sunrise * 1000))));
-    console.log('sunset log')
-    console.log((new Date((object.current.sunset * 1000))));
-    object.daily.forEach( function () {
     });
-  //  console.log(object.daily[0]) gives the week
+}
+
+// change object name later
+
+function handleAllData(climate) {
+
+  loggingObj(climate);
+    indDay(climate);
+
+}
+
+function loggingObj(climate) {
+    console.log(climate);
+    console.log('time and date log')
+    console.log(new Date((climate.current.dt * 1000)));
+    console.log('temp log')
+    console.log(climate.current.temp);
+    console.log('sunrise log')
+    console.log((new Date((climate.current.sunrise * 1000))));
+    console.log('sunset log')
+    console.log((new Date((climate.current.sunset * 1000))));
+
+
+}
+
+
+
+
+function indDay(climate) {
+    climate.daily.forEach(function() {
+    });
+}
+  //  console.log(object.daily[0]) gives the forecast properties/data for Week
     //now we want to loop through to get the individual day
     // for(var i = 0; i < object.daily.length; i++){  my break down
     // console.log(object.daily[i].dt) // what i came to
     //
-    // object.daily.forEach( function () {  //kyles suggestion
+    // object.daily.forEach( function () {  //kyles suggestion >>which does break down to individual days
+
 // });
+
+
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: "mapbox://styles/mapbox/dark-v10", // style URL
+        center: [-96.7970, 32.7767], // starting position [lng, lat]
+        zoom: 9 // starting zoom
     });
 
 
+map.on('click', function(e){
+    console.log(e);
+});
+
+function getCurrLocation(climate) {
+    reverseGeocode(climate, MAPBOX_API_TOKEN).then(r => {
+        $("#currAddress").text(r);
+    });
+}
+
+function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
+    switch (condition) {
+        case "Foggy":
+        case "Cloudy":
+            body.style.backgroundImage = "url('img/foggy_weather.jpeg')";      // 112-126 my refactored code as well as added original default
+            weatherSection.style.color = "white";
+            $("#indvCurrCard").css("color", "black");
+            break;
+        case "Snow":
+            body.style.backgroundImage = "url('img/snowy_weather.jpeg')";
+            weatherSection.style.color = "rgb(247 247 247)";
+        default:
+            body.style.backgroundImage = "url('img/sunny_weather.jpg')";
+            weatherSection.style.color = "#4fb286";
+
+            break;
+    }
+}
 
 
-
-/*
+// });
+/* my output jquery object <3
 weather-map.html?_ij…flpo3&_ij_reload:25
 {lat: 32.7767, lon: -96.797, timezone: "America/Chicago", timezone_offset: -18000, current: {…}, …}
 current: {dt: 1629479103, sunrise: 1629460460, sunset: 1629508021, temp: 89.8, feels_like: 99.75, …}

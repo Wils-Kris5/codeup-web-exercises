@@ -2,37 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather API Examples</title>
+    <title>weather api example</title>
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script src="js/keys.js"></script>
-<script>
-    "use strict";
 
-    // convert API date/time response to JS Date Object
-    // ... new Date(1629461117 * 1000)
 
-    $.get('https://api.openweathermap.org/data/2.5/onecall', {
-        appid: WEATHER_PROJ_API,
-        lat: 29.4252,
-        lon: -98.4916,
-        units: 'imperial',
-        exclude: 'minutely,hourly'
-    }).done(function(data) {
-        console.log(data);
-        console.log(data.daily[0].humidity);
 
-        data.daily.forEach(function(day) {
-            console.log(day.humidity);
-        });
+<!--<script>-->
 
-    }).fail(function(error) {
-        console.log(error);
-    });
 
-</script>
+<!--// Justins code used for example-->
+
+
+
+<!--    // jquery isnt always needed to make ajax requests, it just looks nicer.-->
+<!--    //-->
+<!--    // > you have to alwayys inclue the lon, lat, and app id key-->
+<!--    //-->
+<!--   $.get('http://api.openweathermap.org/data/2.5/onecall', {appid: Weather_app-->
+<!--        lat: 29.4252,-->
+<!--        lon: -98.4916,-->
+<!--       units: 'imperial',-->
+<!--       exclude: 'minutely,hourly'-->
+<!--    }).done(functuon(data){-->
+<!--        console.log(data);-->
+<!--        console.log(data.daily[0]. humidity);-->
+<!--    });-->
+
+<!--/*  -->
+<!--* <!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Weather API Examples</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+<!--/* <script src="js/keys.js"></script>-->
+<!--<script>-->
+<!--    "use strict";-->
+
+<!--    // convert API date/time response to JS Date Object-->
+<!--    // ... new Date(1629461117 * 1000)-->
+
+<!--    $.get('https://api.openweathermap.org/data/2.5/onecall', {-->
+<!--        appid: WEATHER_APP_ID,-->
+<!--        lat: 29.4252,-->
+<!--        lon: -98.4916,-->
+<!--        units: 'imperial',-->
+<!--        exclude: 'minutely,hourly'-->
+<!--    }).done(function(data) {-->
+<!--        console.log(data);-->
+<!--        console.log(data.daily[0].humidity);-->
+
+<!--        data.daily.forEach(function(day) {-->
+<!--            console.log(day.humidity);-->
+<!--        });-->
+
+<!--    }).fail(function(error) {-->
+<!--        console.log(error);-->
+<!--    });-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+<!-- */-->
+
+<!--</script>-->
 
 </body>
 </html>
