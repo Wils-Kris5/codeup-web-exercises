@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map Project!</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/weather-map.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
 
 </head>
 <body>
-<div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <input type="text" placeholder="Search..">
-</div>
+<!--navbar-->
+<ul>
+    <li><a href="#weather-app">Weather App</a></li>
 
-
+    <li style="float:right"><a class="active" href="#about">Current City:</a></li>
+</ul>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+<!--Map itself-->
 <div id="map" class="container"></div>
 
 <!--//script for jquery-->
@@ -23,7 +29,7 @@
 <!--script for ajax-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
 
 <!--script for geo/reverse geo-->
 <script src="js/mapbox-geocode-utils.js"></script>
@@ -49,8 +55,8 @@ function getWeather(climate) {
     });
 }
 
-// change object name later
 
+//
 function handleAllData(climate) {
 
   loggingObj(climate);
@@ -72,9 +78,6 @@ function loggingObj(climate) {
 
 }
 
-
-
-
 function indDay(climate) {
     climate.daily.forEach(function() {
     });
@@ -88,7 +91,7 @@ function indDay(climate) {
 
 // });
 
-
+// mapbox map
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -97,10 +100,18 @@ function indDay(climate) {
         zoom: 9 // starting zoom
     });
 
+map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+);
 
 map.on('click', function(e){
     console.log(e);
 });
+
+
 
 function getCurrLocation(climate) {
     reverseGeocode(climate, MAPBOX_API_TOKEN).then(r => {
@@ -110,15 +121,16 @@ function getCurrLocation(climate) {
 
 function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
     switch (condition) {
-        case "Foggy":
-        case "Cloudy":
+        case "foggy":
+        case "cloudy":
             body.style.backgroundImage = "url('img/foggy_weather.jpeg')";      // 112-126 my refactored code as well as added original default
             weatherSection.style.color = "white";
             $("#indvCurrCard").css("color", "black");
             break;
-        case "Snow":
+        case "snow":
             body.style.backgroundImage = "url('img/snowy_weather.jpeg')";
             weatherSection.style.color = "rgb(247 247 247)";
+            break;
         default:
             body.style.backgroundImage = "url('img/sunny_weather.jpg')";
             weatherSection.style.color = "#4fb286";
