@@ -47,7 +47,7 @@ li a:hover {
     box-shadow: -3px 2px 1px 0 rgba(0,0,0,0.1);
     background-color: #1e0f0f;
 }
-.flip-card-inner {
+.flip-card-inner {         
     position: relative;
     width: 100%;
     height: 100%;
@@ -79,12 +79,4 @@ li a:hover {
 }
 .flip{
     transform: rotateY(180deg);
-}
-forecastCard {
-
-    width: 95%;
-    color: white;
-    border: none;
-    background: none;
-    flex-direction: column;
 }

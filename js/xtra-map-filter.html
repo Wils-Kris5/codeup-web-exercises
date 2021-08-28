@@ -66,27 +66,35 @@
     //  have dog names and age properties and values
          const dogObjs =  dogs.map(obj => {
              return {dogName:`${newDogs}`, age:`${newDogsAges}` }
-    }, [])
+    }, []);
 
     console.log('Exercise 3:');
 
-    // FILTER
+    // FILTER   .filter: filters our values, that is,
+    // makes sure each element in the collection meets some criteria
+    // or passes some test.
 
     // TODO 4: using filter, create a new array containing only dogs younger than 10 years old
+    let dogsUnderTen = dogs.filter(dog=>dog.age < 10);
     console.log('Exercise 4:');
 
     // TODO 5: using filter, create a new array containing only dogs named 'Lexie'
+   let onlyLexie = dogs.filter(dog=>dog.dogName.includes('Lexie'));
     console.log('Exercise 5:');
 
     // TODO 6: using filter, create a new array containing only dogs that are trained and younger than 10
+   let  trainedDogsUnderTen = dogs.filter(dog=>dog.age.isTrained < 10)
     console.log('Exercise 6:');
 
-    // REDUCE
+    // REDUCE transforms the array  into an object of searched criteria
 
     // TODO 7: using reduce, return a string containing all dog names together with no spaces ("BubblesLexieDoggy...")
+      let concatDogNames = dogs.reduce()
     console.log('Exercise 7:');
 
     // TODO 8: using reduce, return the total of adding all dog ages together (18)
+
+
     console.log('Exercise 8:');
 
     // TODO 9: using reduce, return an array of dog objects with all isTrained properties set to true
@@ -95,18 +103,23 @@
     // EXTRA CHALLENGES
 
     // TODO 10: what is the average age of each dog?
+
     console.log('Exercise 10:');
 
     // TODO 11: what is the average age of dogs that are trained?
+
     console.log('Exercise 11:');
 
     // TODO 12: what is the average length of names of untrained dogs?
+
     console.log('Exercise 12:');
 
     // TODO 13: what are the combined ages of all dogs in dog years? (7x more than a human year)
+
     console.log('Exercise 13:');
 
     // TODO 14: create a string of the first letters of each dog name for dogs three years old (should be "LF")
+
     console.log('Exercise 14:');
 
 </script>

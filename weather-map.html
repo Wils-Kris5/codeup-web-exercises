@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map Project!</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maaximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/weather-map.css">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
@@ -43,12 +44,6 @@
 <!--script for geo/reverse geo-->
 <script src="js/mapbox-geocode-utils.js"></script>
 
-<div id="header" class="dark"></div>
-    <select id="weatherDisplay" class="headerItem">
-        <option value="daily" selected>One Week Forecast</option>
-        <option value="hourly">Hourly</option>
-    </select>
-    <div id="todayDate"></div>/-->
 
 
 <!--WEATHER_PROJ_API/CLASS TOKEN EXAMPLE-->
@@ -201,17 +196,6 @@ function getCurrLocation(data) {
     });
 }
 
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-const baseOffset = 21600;
-let count = 0;
-let cache = {};
-const doc = $("body");
-
-
-const card = document.getElementsByClassName("weatherCard");
-
 
 
 function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
@@ -219,12 +203,12 @@ function forecastImage(condition) {           // matt bakers suggestion of switc
             case "foggy":
             case "few clouds":
                 body.style.backgroundImage = "url('img/foggy_weather.jpeg')";      // 112-126 my refactored code as well as added original default
-                weatherSection.style.color = "white";
-                $("#").css("color", "black");
+                body.style.color = "white";
+                $("#weekly").css("color", "black");
                 break;
             case "snow":
                 body.style.backgroundImage = "url('img/snowy_weather.jpeg')";
-                weatherSection.style.color = "rgb(247 247 247)";
+                flipCard.style.color = "rgb(247 247 247)";
                 break;
             case "stormy":
                 body.style.backgroundImage = "url('img/stormy_weather.jpeg')";

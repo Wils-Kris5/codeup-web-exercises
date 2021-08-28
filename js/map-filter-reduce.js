@@ -67,7 +67,7 @@ let avgtotalYrsExp = users.reduce((totalYears, user, index, array)
 
 
  
-                                                                  -1
+
 
 //4 Use .reduce to get the longest email from the list of users.
   const longestEmail = users.reduce((accumulator, user, index, users) => {
