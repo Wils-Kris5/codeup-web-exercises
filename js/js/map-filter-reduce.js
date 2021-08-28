@@ -100,3 +100,17 @@ let avgtotalYrsExp = users.reduce((totalYears, user, index, array)
 //        return accumulatorArray;
 //    }
 // }, []);
+
+
+
+
+//let uniqueUserLanguages = users.reduce(function(accumulator, user){
+//     let languages = user.languages;
+//     for (let i = 0; i < languages.length; i++){
+//         if (!accumulator.includes(languages[i])){
+//             accumulator.push(languages[i]);
+//         }
+//     }
+//     return accumulator.sort();
+// }, []);
+// console.log(uniqueUserLanguages);

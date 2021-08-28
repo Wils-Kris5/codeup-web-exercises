@@ -33,6 +33,12 @@ li a:hover {
 /*    styles:tiles;*/
 /*}*/
 
+#weekly-forecast-card-set {
+    display: flex;
+    width: 100%;
+  
+
+}
 
 .flip-card {
     width: 100%;
@@ -73,4 +79,12 @@ li a:hover {
 }
 .flip{
     transform: rotateY(180deg);
+}
+forecastCard {
+
+    width: 95%;
+    color: white;
+    border: none;
+    background: none;
+    flex-direction: column;
 }

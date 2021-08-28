@@ -460,18 +460,6 @@ const mileages = cars.reduce((accumulator, car) => {
 //
 // let prices = [32.99, 21.99, 6.99, 4.99, 12.99, 8.98, 5.99];
 // let highLowPrices = prices.reduce((accumulatorArray, price, index, pricesArray)=>{
-//    if (index === pricesArray.length-1){
-//        accumulatorArray.push(price);
-//        let returnArray = [];
-//        accumulatorArray.sort((price1, price2)=>price1-price2);
-//        let lowestPrice = accumulatorArray[0];
-//        let highestPrice = accumulatorArray[accumulatorArray.length-1];
-//        returnArray.push(lowestPrice);
-//        returnArray.push(highestPrice);
-//        return returnArray;
-//    } else {
-//        accumulatorArray.push(price);
-//        return accumulatorArray;
-//    }
-// }, []);
+//
+
 

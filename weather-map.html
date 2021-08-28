@@ -23,7 +23,11 @@
 <!--Map itself-->
 <div id="map" class="container"></div>
 
+
 <div id="weekly-forecast-card-set" class="forecast-card">
+
+
+
 
 
 </div>
@@ -39,11 +43,16 @@
 <!--script for geo/reverse geo-->
 <script src="js/mapbox-geocode-utils.js"></script>
 
+<div id="header" class="dark"></div>
+    <select id="weatherDisplay" class="headerItem">
+        <option value="daily" selected>One Week Forecast</option>
+        <option value="hourly">Hourly</option>
+    </select>
+    <div id="todayDate"></div>/-->
+
+
 <!--WEATHER_PROJ_API/CLASS TOKEN EXAMPLE-->
 <script src="js/keys.js"></script>
-
-
-
 <script>
 "use strict"
 getWeather();
@@ -57,15 +66,16 @@ function getWeather() {
     }).done(function (data) {//when Ajax data is logged were gonna handle the data
         console.log(data);
         console.log(data.daily);
-        // handleAllData(climate)
-        var crrntHTML = $('#weekly-forecast-card-set').html();
+         //handleAllData(climate)
+         var currntHTML = $('#weekly-forecast-card-set').html();
         var html = '';
+      
      for(var i = 0; i < 5; i++){
-    html += '<div class="forecast-card">';
+    html += currntHTML
     let date = new Date(data.daily[i].dt * 1000);
-
+  //   let weatherIcon = date.weather[0].icon;
     // // date div
-    html += '<div class="date">' + date.getMonth() + 1 + '-' + date.getDate() + '</div>';
+    html += '<div class="date">'  + date.getMonth() + 1 + '-' + date.getDate() + '</div>';
     //
     // // temp
     html += '<div class="temp">' + (data.daily[i].temp.min + '/' + data.daily[i].temp.max) + 'Fahrenheit</div>';
@@ -124,7 +134,6 @@ function windCardinalDirection(degrees){
     return cardinalDirection;
 }
 //
-
 
 function handleAllData(data) {
 
@@ -192,9 +201,20 @@ function getCurrLocation(data) {
     });
 }
 
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+const baseOffset = 21600;
+let count = 0;
+let cache = {};
+const doc = $("body");
 
 
-    function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
+const card = document.getElementsByClassName("weatherCard");
+
+
+
+function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
         switch (condition) {
             case "foggy":
             case "few clouds":
