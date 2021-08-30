@@ -87,27 +87,42 @@
     console.log('Exercise 6:');
 
     // REDUCE transforms the array  into an object of searched criteria
+     //previousValue (the value resulting from the   (ask javier/justing about this)
+    // previous call to callbackfn  = this will be the Reduce method that you use/start out using
 
     // TODO 7: using reduce, return a string containing all dog names together with no spaces ("BubblesLexieDoggy...")
-      let concatDogNames = dogs.reduce()
+
+        //whatever array you passthrough those will be   your values
+     const dogNameReducer = newDogs.reduce((dog, currDog) => dog.concat(currDog), " ");
+        //return " BubblesLexieDoggyFlopperLexieSkipBlue"
+
     console.log('Exercise 7:');
 
     // TODO 8: using reduce, return the total of adding all dog ages together (18)
-
+              const dogAgeReducer = newDogsAges.reduce((dog, currDog) => dog + currDog);
 
     console.log('Exercise 8:');
 
     // TODO 9: using reduce, return an array of dog objects with all isTrained properties set to true
+     let dogTrainedTrue = dogs.reduce((dog, currDog)=>{
+         if(currDog.isTrained === true) {
+           dog.push(currDog);
+         }
+         return dog
+     }, [])
+
+
     console.log('Exercise 9:');
 
     // EXTRA CHALLENGES
 
     // TODO 10: what is the average age of each dog?
-
+    const avgOfDog = newDogsAges.reduce((dog, currDog)=> dog + currDog)/7
+                //dog + currDog/7
     console.log('Exercise 10:');
 
     // TODO 11: what is the average age of dogs that are trained?
-
+    const avgOfTrainedDog = newDogsAges.filter((dog, currDog)=>
     console.log('Exercise 11:');
 
     // TODO 12: what is the average length of names of untrained dogs?

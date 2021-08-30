@@ -7,8 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/weather-map.css">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
 
 </head>
@@ -22,16 +25,22 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 <!--Map itself-->
-<div id="map" class="container"></div>
+<div id="map"></div>
 
 
 <div id="weekly-forecast-card-set" class="forecast-card">
+    <div class="row">
+        <div class="col s12 m5">
+            <div class="card-panel teal">
 
-
-
-
-
+                </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 
 <!--//script for jquery-->
 <script src="js/jquery-3.6.0.min.js"></script>
@@ -49,117 +58,117 @@
 <!--WEATHER_PROJ_API/CLASS TOKEN EXAMPLE-->
 <script src="js/keys.js"></script>
 <script>
-"use strict"
-getWeather();
-function getWeather() {
-    $.get('http://api.openweathermap.org/data/2.5/onecall', {
-        appid: WEATHER_API_KEY,             //get request being made
-        lat: 32.7767,
-        lon: -96.7970,
-        units: 'imperial',
-        exclude: 'minutely, hourly'
-    }).done(function (data) {//when Ajax data is logged were gonna handle the data
-        console.log(data);
-        console.log(data.daily);
-         //handleAllData(climate)
-         var currntHTML = $('#weekly-forecast-card-set').html();
-        var html = '';
-      
-     for(var i = 0; i < 5; i++){
-    html += currntHTML
-    let date = new Date(data.daily[i].dt * 1000);
-  //   let weatherIcon = date.weather[0].icon;
-    // // date div
-    html += '<div class="date">'  + date.getMonth() + 1 + '-' + date.getDate() + '</div>';
-    //
-    // // temp
-    html += '<div class="temp">' + (data.daily[i].temp.min + '/' + data.daily[i].temp.max) + 'Fahrenheit</div>';
+    "use strict"
+    getWeather();
+    function getWeather() {
+        $.get('http://api.openweathermap.org/data/2.5/onecall', {
+            appid: WEATHER_API_KEY,             //get request being made
+            lat: 32.7767,
+            lon: -96.7970,
+            units: 'imperial',
+            exclude: 'minutely, hourly'
+        }).done(function (data) {//when Ajax data is logged were gonna handle the data
+            console.log(data);
+            console.log(data.daily);
+            //handleAllData(climate)
+            var currntHTML = $('#weekly-forecast-card-set').html();
+            var html = '';
+                                                                   //DATE, TEMP,WEATHER, HUMIDITY WIND
+            for(var i = 0; i < 5; i++){
+                html += currntHTML
+                let date = new Date(data.daily[i].dt * 1000);
+                //   let weatherIcon = date.weather[0].icon;
+                // // date div
+                html += '<div class="date">'  + date.getMonth() + 1 + '-' + date.getDate() + '</div>';
+                //
+                // // temp
+                html += '<div class="temp">' + (data.daily[i].temp.min + '/' + data.daily[i].temp.max) + 'Fahrenheit</div>';
 
-    // // weather info
-    html += '<div class="weather">' + 'Weather: ' + (data.daily[i].weather[0].description) + '</div>';
+                // // weather info
+                html += '<div class="weather">' + 'Weather: ' + (data.daily[i].weather[0].description) + '</div>';
 
-    // humidity
-    html += '<div class="humidity">Humidity: ' + (data.daily[i].humidity) + '</div>';
+                // humidity
+                html += '<div class="humidity">Humidity: ' + (data.daily[i].humidity) + '</div>';
 
-    // // wind
-    html += '<div class="wind">Wind: ' + data.daily[i].wind_speed + 'mph ' + windCardinalDirection(data.daily[i].wind_deg) + '</div>';
+                // // wind
+                html += '<div class="wind">Wind: ' + data.daily[i].wind_speed + 'mph ' + windCardinalDirection(data.daily[i].wind_deg) + '</div>';
 
-    html += '</div>'
-  html += '<hr>'
-}
-        $('#weekly-forecast-card-set').append(html);
-    });
-}
-
-function windCardinalDirection(degrees){
-    let cardinalDirection = '';
-    if ((degrees > 348.75 && degrees <= 360) || (degrees >=0 && degrees <= 11.25)){
-        cardinalDirection = "N";
-    } else if (degrees > 11.25 && degrees  <= 33.75) {
-        cardinalDirection = "NNE";
-    } else if (degrees > 33.75 && degrees <= 56.25) {
-        cardinalDirection = "NE";
-    } else if (degrees > 56.25 && degrees <= 78.75) {
-        cardinalDirection = "ENE";
-    } else if (degrees > 78.75 && degrees <= 101.25) {
-        cardinalDirection = "E";
-    } else if (degrees > 101.25 && degrees <= 123.75) {
-        cardinalDirection = "ESE";
-    } else if (degrees > 123.75 && degrees <= 146.25) {
-        cardinalDirection = "SE";
-    } else if (degrees > 146.25 && degrees <= 168.75) {
-        cardinalDirection = "SSE";
-    } else if (degrees > 168.75 && degrees <= 191.25) {
-        cardinalDirection = "S";
-    } else  if (degrees > 191.25 && degrees <= 213.75) {
-        cardinalDirection = "SSW";
-    } else if (degrees > 213.75 && degrees <= 236.25)  {
-        cardinalDirection = "SW";
-    } else if (degrees > 236.25 && degrees <= 258.75) {
-        cardinalDirection = "WSW";
-    } else if (degrees > 258.75 && degrees <= 281.25) {
-        cardinalDirection = "W";
-    } else if (degrees > 281.25 && degrees <= 303.75) {
-        cardinalDirection = "WNW";
-    } else if (degrees > 303.75 && degrees <= 326.25) {
-        cardinalDirection = "NW";
-    } else if (degrees > 326.75 && degrees <= 348.75) {
-        cardinalDirection = "NNW";
+                html += '</div>'
+                html += '<hr>'
+            }
+            $('#weekly-forecast-card-set').append(html);
+        });
     }
-    return cardinalDirection;
-}
-//
 
-function handleAllData(data) {
+    function windCardinalDirection(degrees){
+        let cardinalDirection = '';
+        if ((degrees > 348.75 && degrees <= 360) || (degrees >=0 && degrees <= 11.25)){
+            cardinalDirection = "N";
+        } else if (degrees > 11.25 && degrees  <= 33.75) {
+            cardinalDirection = "NNE";
+        } else if (degrees > 33.75 && degrees <= 56.25) {
+            cardinalDirection = "NE";
+        } else if (degrees > 56.25 && degrees <= 78.75) {
+            cardinalDirection = "ENE";
+        } else if (degrees > 78.75 && degrees <= 101.25) {
+            cardinalDirection = "E";
+        } else if (degrees > 101.25 && degrees <= 123.75) {
+            cardinalDirection = "ESE";
+        } else if (degrees > 123.75 && degrees <= 146.25) {
+            cardinalDirection = "SE";
+        } else if (degrees > 146.25 && degrees <= 168.75) {
+            cardinalDirection = "SSE";
+        } else if (degrees > 168.75 && degrees <= 191.25) {
+            cardinalDirection = "S";
+        } else  if (degrees > 191.25 && degrees <= 213.75) {
+            cardinalDirection = "SSW";
+        } else if (degrees > 213.75 && degrees <= 236.25)  {
+            cardinalDirection = "SW";
+        } else if (degrees > 236.25 && degrees <= 258.75) {
+            cardinalDirection = "WSW";
+        } else if (degrees > 258.75 && degrees <= 281.25) {
+            cardinalDirection = "W";
+        } else if (degrees > 281.25 && degrees <= 303.75) {
+            cardinalDirection = "WNW";
+        } else if (degrees > 303.75 && degrees <= 326.25) {
+            cardinalDirection = "NW";
+        } else if (degrees > 326.75 && degrees <= 348.75) {
+            cardinalDirection = "NNW";
+        }
+        return cardinalDirection;
+    }
+    //
 
-  loggingObj(data);
-    indDay(data);
+    function handleAllData(data) {
 
-}
-//
-function loggingObj(data) {
+        loggingObj(data);
+        indDay(data);
 
-    console.log(data);
-    console.log('time and date log')
-    console.log(new Date((data.current.dt * 1000)));
-    console.log('temp log')
-    console.log(data.current.temp);
-    console.log('sunrise log')
-    console.log((new Date((data.current.sunrise * 1000))));
-    console.log('sunset log')
-    console.log((new Date((data.current.sunset * 1000))));
-}
+    }
+    //
+    function loggingObj(data) {
 
-
-
-function indDay(data) {
-    data.daily.forEach(function() {
-    });
-}
+        console.log(data);
+        console.log('time and date log')
+        console.log(new Date((data.current.dt * 1000)));
+        console.log('temp log')
+        console.log(data.current.temp);
+        console.log('sunrise log')
+        console.log((new Date((data.current.sunrise * 1000))));
+        console.log('sunset log')
+        console.log((new Date((data.current.sunset * 1000))));
+    }
 
 
 
-// mapbox map
+    function indDay(data) {
+        data.daily.forEach(function() {
+        });
+    }
+
+
+
+    // mapbox map
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -167,113 +176,141 @@ function indDay(data) {
         center: [-96.7970, 32.7767], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
-//search
-map.addControl(new mapboxgl.GeolocateControl({
+    //search
+    map.addControl(new mapboxgl.GeolocateControl({
 
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true,
-    showUserHeading: true
-}));
-const marker = new mapboxgl.Marker({
-    draggable: true
-})
-//marker
-map.on('click', function(e){
-    console.log(e);
-});
-
-// function geocode("701 Commerce St #100A, Dallas, TX 75202", MAPBOX_API_TOKEN).(function(result) {
-//     console.log(result);
-//     map.setCenter(result);
-//     map.setZoom(20);
-// });
-
-function getCurrLocation(data) {
-    reverseGeocode(data, MAPBOX_API_TOKEN).then(r => {
-        $("").text(r);
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showUserHeading: true
+    }));
+    const marker = new mapboxgl.Marker({
+        draggable: true
+    })
+    //marker
+    map.on('click', function(e){
+        console.log(e);
     });
-}
 
+    // function geocode("701 Commerce St #100A, Dallas, TX 75202", MAPBOX_API_TOKEN).(function(result) {
+    //     console.log(result);
+    //     map.setCenter(result);
+    //     map.setZoom(20);
+    // });
 
+    // function getCurrLocation(data) {
+    //     reverseGeocode(data, MAPBOX_API_TOKEN).then(r => {
+    //         $("").text(r);
+    //     });
+    // }
+    //
+    //
 
-function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
+    function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
         switch (condition) {
             case "foggy":
             case "few clouds":
-                body.style.backgroundImage = "url('img/foggy_weather.jpeg')";      // 112-126 my refactored code as well as added original default
-                body.style.color = "white";
-                $("#weekly").css("color", "black");
+                ("body").style.backgroundImage = "url('img/foggy_weather.jpeg')";      // 112-126 my refactored code as well as added original default
+                condition.style.color = "white";
+                $("#weekly-forecast-card-set").css("color", "black");
                 break;
             case "snow":
-                body.style.backgroundImage = "url('img/snowy_weather.jpeg')";
+               body.style.backgroundImage = "url('img/snowy_weather.jpeg')";
                 flipCard.style.color = "rgb(247 247 247)";
                 break;
             case "stormy":
-                body.style.backgroundImage = "url('img/stormy_weather.jpeg')";
-                weatherSection.style.color = "rgb(247 247 247)";
+                condition.style.backgroundImage = "url('img/stormy_weather.jpeg')";
+                condition.style.color = "rgb(247 247 247)";
                 break;
             default:
-                body.style.backgroundImage = "url('img/sunny_weather.jpg')";
-                weatherSection.style.color = "#4fb286";
+                condition.style.backgroundImage = "url('img/sunny_weather.jpg')";
+                condition.style.color = "#4fb286";
 
                 break;
         }
 
-}
-// work flow process
-// var searchedLonLat = [data.features[0].center[0], data.features[0].center[1]];
-//  console.log(object.daily[0]) gives the forecast properties/data for Week
-//now we want to loop through to get the individual day
-// for(var i = 0; i < object.daily.length; i++){  my break down
-// console.log(object.daily[i].dt) // what i came to
-//
-// object.daily.forEach( function () {  //kyles suggestion >>which does break down to individual days
+        function querySelector(body) {
+            return document.querySelector(body);
+        }
 
-// });
-// function forecastCards(climate) {
-//     var html = '';                             //card data = date, temp in F, description, humidity, wind, pressure
-//     for(var i = 0; i < 5; i++) {
-//         var crrntHTML = $('#weekly-forecast-card-set').html();
-//         html += '<div class="forecast-card">';
-//         let date = new Date(climate.daily[i].dt * 1000);
-//
-//         // // date div
-//         // html += '<div class="date">' + (date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()) + '</div>';
-//         //
-//         // // temp
-//         // html += '<div class="temp">' + (climate.daily[i].temp.min + '/' + data.daily[i].temp.max) + 'Fahrenheit</div>';
-//
-//         // // weather info
-//         // html += '<div class="weather">' + 'Weather: ' + (climate.daily[i].weather[0].description) + '</div>';
-//
-//         // humidity
-//         html += '<div class="humidity">Humidity: ' + (climate.daily[i].humidity) + '</div>';
-//
-//         // // wind
-//         // html += '<div class="wind">Wind: ' + climate.daily[i].wind_speed + 'mph ' + windCardinalDirection(climate.daily[i].wind_deg) + '</div>';
-//         //
-//
+        //querySelector("body").style["background-image"] = "url(https://images.unsplash.com/photo-1452561802015-953ab78c4526?dpr=1&auto=compress,format&fit=crop&w=1477&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    // case "Clouds":
+    // querySelector("body").style["background-image"] = "url(https://images.unsplash.com/44/xKNCBEgSTUGbgBoYgJ90_Skyline.jpg?dpr=1&auto=compress,format&fit=crop&w=751&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    // case "Rain":
+    // querySelector("body").style["background-image"] = "url(https://images.unsplash.com/photo-1477847616630-cf9cf8815fda?dpr=1&auto=compress,format&fit=crop&w=750&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    // case "Mist":
+    // querySelector("body").style["background-image"] = "url(https://images.unsplash.com/30/ny-filtered.jpg?dpr=1&auto=compress,format&fit=crop&w=1508&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    // case "Fog":
+    // querySelector("body").style["background-image"] = "url(https://images.unsplash.com/photo-1494054457339-2022c634b1ae?dpr=1&auto=compress,format&fit=crop&w=1570&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    // case "Thunderstorm":
+    // querySelector("body").style["background-image"] = "url(https://images.unsplash.com/photo-1498595707991-4fc87268b184?dpr=1&auto=compress,format&fit=crop&w=1489&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    // case "Snow":
+    // querySelector("body").style['background-image'] = 'url(https://images.unsplash.com/photo-1468476775582-6bede20f356f?dpr=1&auto=compress,format&fit=crop&w=1366&h=&q=80&cs=tinysrgb&crop=)';
+    // break;
+    // default:
+    // querySelector("body").style["background-image"] = "url(https://images.unsplash.com/photo-1469433791803-c2719135f970?dpr=1&auto=compress,format&fit=crop&w=750&h=&q=80&cs=tinysrgb&crop=)";
+    // break;
+    }
 
-// }
+    // work flow process
+    // var searchedLonLat = [data.features[0].center[0], data.features[0].center[1]];
+    //  console.log(object.daily[0]) gives the forecast properties/data for Week
+    //now we want to loop through to get the individual day
+    // for(var i = 0; i < object.daily.length; i++){  my break down
+    // console.log(object.daily[i].dt) // what i came to
+    //
+    // object.daily.forEach( function () {  //kyles suggestion >>which does break down to individual days
 
-// });
-/* my output jquery object <3
-weather-map.html?_ij…flpo3&_ij_reload:25
-{lat: 32.7767, lon: -96.797, timezone: "America/Chicago", timezone_offset: -18000, current: {…}, …}
-current: {dt: 1629479103, sunrise: 1629460460, sunset: 1629508021, temp: 89.8, feels_like: 99.75, …}
-daily: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-hourly: (48) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-lat: 32.7767
-lon: -96.797
-timezone: "America/Chicago"
-timezone_offset: -18000
-[[Prototype]]: Object
-*
-*
-*
-* */
+    // });
+    // function forecastCards(climate) {
+    //     var html = '';                             //card data = date, temp in F, description, humidity, wind, pressure
+    //     for(var i = 0; i < 5; i++) {
+    //         var crrntHTML = $('#weekly-forecast-card-set').html();
+    //         html += '<div class="forecast-card">';
+    //         let date = new Date(climate.daily[i].dt * 1000);
+    //
+    //         // // date div
+    //         // html += '<div class="date">' + (date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()) + '</div>';
+    //         //
+    //         // // temp
+    //         // html += '<div class="temp">' + (climate.daily[i].temp.min + '/' + data.daily[i].temp.max) + 'Fahrenheit</div>';
+    //
+    //         // // weather info
+    //         // html += '<div class="weather">' + 'Weather: ' + (climate.daily[i].weather[0].description) + '</div>';
+    //
+    //         // humidity
+    //         html += '<div class="humidity">Humidity: ' + (climate.daily[i].humidity) + '</div>';
+    //
+    //         // // wind
+    //         // html += '<div class="wind">Wind: ' + climate.daily[i].wind_speed + 'mph ' + windCardinalDirection(climate.daily[i].wind_deg) + '</div>';
+    //         //
+    //
+
+    // }
+
+    // });
+    /* my output jquery object <3
+    weather-map.html?_ij…flpo3&_ij_reload:25
+    {lat: 32.7767, lon: -96.797, timezone: "America/Chicago", timezone_offset: -18000, current: {…}, …}
+    current: {dt: 1629479103, sunrise: 1629460460, sunset: 1629508021, temp: 89.8, feels_like: 99.75, …}
+    daily: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+    hourly: (48) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+    lat: 32.7767
+    lon: -96.797
+    timezone: "America/Chicago"
+    timezone_offset: -18000
+    [[Prototype]]: Object
+    *
+    *
+    *
+    * */
 
 
 </script>
