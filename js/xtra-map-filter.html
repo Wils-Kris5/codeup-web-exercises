@@ -83,20 +83,19 @@
     console.log('Exercise 5:');
 
     // TODO 6: using filter, create a new array containing only dogs that are trained and younger than 10
-   let  trainedDogsUnderTen = dogs.filter(dog=>dog.age.isTrained < 10)
+    let trainedDogsUnderTen = dogs.filter(dog=>dog.isTrained && dog.age < 10)
     console.log('Exercise 6:');
 
     // REDUCE transforms the array  into an object of searched criteria
-     //previousValue (the value resulting from the   (ask javier/justing about this)
+     //previousValue (the value resulting from the   (ask javier/justin about this)
     // previous call to callbackfn  = this will be the Reduce method that you use/start out using
 
-    // TODO 7: using reduce, return a string containing all dog names together with no spaces ("BubblesLexieDoggy...")
+    // TODO 7: using reduce, retursn a string containing all dog names together with no spaces ("BubblesLexieDoggy...")
 
         //whatever array you passthrough those will be   your values
-     const dogNameReducer = newDogs.reduce((dog, currDog) => dog.concat(currDog), " ");
-        //return " BubblesLexieDoggyFlopperLexieSkipBlue"
-
-    console.log('Exercise 7:');
+     const dogNameReducer = newDogs.reduce((dog, currDog) => (dog.concat(currDog)), " ");
+            console.log('Exercise 7:');
+               //return " BubblessexieDoggyFlopperLexieSkipBlus"
 
     // TODO 8: using reduce, return the total of adding all dog ages together (18)
               const dogAgeReducer = newDogsAges.reduce((dog, currDog) => dog + currDog);
@@ -122,7 +121,7 @@
     console.log('Exercise 10:');
 
     // TODO 11: what is the average age of dogs that are trained?
-    const avgOfTrainedDog = newDogsAges.filter((dog, currDog)=>
+    const avgOfTrainedDog = trainedDogsUnderTen.reduce((dog, currDog)=> dog + currDog)/4
     console.log('Exercise 11:');
 
     // TODO 12: what is the average length of names of untrained dogs?
@@ -136,7 +135,15 @@
     // TODO 14: create a string of the first letters of each dog name for dogs three years old (should be "LF")
 
     console.log('Exercise 14:');
+    const input = [1, 2, 3, 4, 5 ];
+    // we want [1, 4, 9, 16, 25 ];
+    const output = input.map(number => number**2);
+    // Sum of every positive element
+    const input2 = [1, -4, 12, 0, -3, 29, -150 ];         // you want to filter to get rid of the neg numbers before reducing
+    const output2 = input2.filter(number => number >= 0).reduce((total, number) => total + number);
+    console.log(output2);
 
+    
 </script>
 </body>
 </html>

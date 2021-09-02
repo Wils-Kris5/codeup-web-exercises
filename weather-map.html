@@ -28,8 +28,8 @@
 <div id="map"></div>
 
 
-<div id="weekly-forecast-card-set" class="forecast-card">
-    <div class="row">
+<div class="forecast-card" id="weekly-forecast-card-set">
+    <div class="container">
         <div class="col s12 m5">
             <div class="card-panel teal">
 
@@ -79,7 +79,7 @@
                 let date = new Date(data.daily[i].dt * 1000);
                 //   let weatherIcon = date.weather[0].icon;
                 // // date div
-                html += '<div class="date">'  + date.getMonth() + 1 + '-' + date.getDate() + '</div>';
+               html += '<div class="date">'  + date.getMonth() + 1 + '-' + date.getDate() + '</div>';
                 //
                 // // temp
                 html += '<div class="temp">' + (data.daily[i].temp.min + '/' + data.daily[i].temp.max) + 'Fahrenheit</div>';
@@ -192,20 +192,14 @@
     map.on('click', function(e){
         console.log(e);
     });
+  
+    function getCurrLocation(data) {
+        reverseGeocode(data, MAPBOX_API_TOKEN).then(r => {
+            $("").text(r);
+        });
+    }
 
-    // function geocode("701 Commerce St #100A, Dallas, TX 75202", MAPBOX_API_TOKEN).(function(result) {
-    //     console.log(result);
-    //     map.setCenter(result);
-    //     map.setZoom(20);
-    // });
 
-    // function getCurrLocation(data) {
-    //     reverseGeocode(data, MAPBOX_API_TOKEN).then(r => {
-    //         $("").text(r);
-    //     });
-    // }
-    //
-    //
 
     function forecastImage(condition) {           // matt bakers suggestion of switch cases for added styling of cards
         switch (condition) {
@@ -233,6 +227,7 @@
         function querySelector(body) {
             return document.querySelector(body);
         }
+       
 
         //querySelector("body").style["background-image"] = "url(https://images.unsplash.com/photo-1452561802015-953ab78c4526?dpr=1&auto=compress,format&fit=crop&w=1477&h=&q=80&cs=tinysrgb&crop=)";
     // break;
