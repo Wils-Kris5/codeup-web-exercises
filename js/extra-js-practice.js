@@ -165,11 +165,11 @@ function numsToObject(num1, num2, num3){
 function removeNums(arr) {
     var arr1 = []; //buckets = what we do want in this return but empty rn
     for(var i = 0; i < arr.length; i++) {  // we started  arr1 is empty so we have to start with arr
-        if(isNaN(arr[i])) { // check if/indv item if it isNaN
+        if(typeof arr[i] != 'number') { // check if/indv item if it isNaN
             arr1.push(arr[i]); // push in to the bucket
         }
-        return arr1;
     }
+    return arr1;
 }
 console.log(removeNums(['a', true, null, [], {}, 4, '5', NaN]))
 // 1. Create a function, `objectToSum`, that takes in an object, and returns the sum of any number property values (numeric strings will not be added). Expect that no object property values will be NaN. If no number properties are present, return 0.
