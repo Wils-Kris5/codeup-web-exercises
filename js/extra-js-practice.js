@@ -215,3 +215,18 @@ console.log(removeNums(['a', true, null, [], {}, 4, '5', NaN]))
 // 	var ages = [34, 22, 45];
 // 	createUsersObject(usernames, ages) // returns {cindy: 34, fred: 22, cathy: 45}
 // 	```
+//FizzBuzz
+function fizzBuzz(num){
+    for(let i = 1; i <= num; i++){
+        if(i % 2 ===0 && i % 3 === 0){
+            console.log("Fizz Buzz");
+        }
+        else if(i % 3 === 0){
+            console.log("Buzz");
+        }
+        else if(i % 2 === 0){
+            console.log("Fizz");
+        }
+        else(console.log(i))
+    }
+}

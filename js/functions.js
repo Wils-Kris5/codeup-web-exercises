@@ -55,7 +55,7 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 function isTwo(num) {
-    return num === 2
+    return num === 2;
 }
 /**
  * TODO:
