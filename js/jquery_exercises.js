@@ -12,7 +12,7 @@ alert('Hello Codeup');
 
 // Update the jQuery code to select and alert a different id.
 $('#potato').html('h1');
-alert('potato')
+alert('loaded')
 // Use the same id on 2 elements. How does this change the jQuery selection?
    // Remove the duplicate id. Each id should be unique on that page. // OK
 

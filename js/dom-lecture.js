@@ -73,4 +73,39 @@
 // console.log(tableRows)
 //     for(var i = 0; i < tableRows.length; i++) {
 //   tableRows[i].style.background = "red";
+
+// Write a function that translates an input string by replacing each character with a number representing
+// the amount of times that character appears in the string.
+// Then separate each individual number with a different character.
+//
+//     Examples:
+
+function countingFunction(chr, str){
+   let count = 0;
+   for(let i = 0; i < str.length; i++){
+       if(chr === str[i]){
+           count++;
+       }
+   }
+   return count;
+}
+
+
+function translates(str, sep){
+    let occurances = 0;
+   let retnStr = "";
+    for(let i = 0; i < str.length; i++){
+        let currentChr = str[i]; //indexes place and assigns
+        let currentChrCount = countingFunction(currentChr, str)
+        retnStr += currentChrCount;
+        if(i < str.length - 1){
+            retnStr += sep;
+        }
+    }
+  return retnStr;
+
+}
+
+//Input: "hello world", "-" | Output: "1-1-3-3-2-1-1-2-1-3-1"
+//Input: "challenge", "/" | Output: "1/1/1/2/2/2/1/1/2"
 // }
